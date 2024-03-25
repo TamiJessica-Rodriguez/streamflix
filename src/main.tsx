@@ -1,10 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import AppLayout from "./AppLayout";
+import InfoPage from "./pages/InfoPage";
+import PreviewPage from "./pages/PreviewPage";
+import WelcomePage from "./pages/WelcomePage";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<AppLayout />}>
+      <Route index element={<WelcomePage />} />
+      <Route path="PreviewPage" element={<PreviewPage />} />
+      <Route path="InfoPage" element={<InfoPage />} />
+      <Route path="*" element={<span>The page does not exist..</span>} />
+    </Route>
+  )
+);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
