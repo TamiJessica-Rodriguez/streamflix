@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import MovieCarousel from "../components/MovieCarousel";
 import { mockedData } from "../data/mockedData";
 

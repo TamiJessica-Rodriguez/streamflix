@@ -32,7 +32,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
         <div className="flex flex-nowrap">
           {movies.map((movie) => (
             <div key={movie.id} className="inline-flex flex-none p-2">
-              <Link to={`/info/${movie.id}`}>
+              <Link to={"/InfoPage/" + movie.id}>
                 <img
                   src={movie.thumbnail}
                   alt={movie.title}
