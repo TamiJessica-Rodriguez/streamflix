@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { movie } from "../data/mockedData";
+import { Movie } from "../data/mockedData";
 
 interface MovieCarouselProps {
-  movies: movie[];
+  movies: Movie[];
 }
 
 const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
@@ -32,7 +32,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
         <div className="flex flex-nowrap">
           {movies.map((movie) => (
             <div key={movie.id} className="inline-flex flex-none p-2">
-              <Link to={`/info/${movie.id}`}>
+              <Link to={"/InfoPage/" + movie.id}>
                 <img
                   src={movie.thumbnail}
                   alt={movie.title}

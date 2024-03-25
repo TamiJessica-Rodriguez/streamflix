@@ -10,6 +10,8 @@ const PreviewPage: React.FC = () => {
 
   const trendingMovies = mockedData.filter((movie) => movie.isTrending);
   const nonTrendingMovies = mockedData.filter((movie) => !movie.isTrending);
+
+  
   const getRandomMovies = (movies: typeof mockedData, num = 10) => {
     const shuffled = [...movies].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, num);
