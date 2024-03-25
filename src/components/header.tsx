@@ -1,9 +1,9 @@
-function Header () {
-    return (
-        <div className="bg-gray-950 text-white p-4">
-            <h1>Detta är vår header</h1>
-        </div>
-    )
+function Header() {
+	return (
+		<div className="flex flex-col sm:flex-row items-center bg-white text-black p-4">
+			<h1>Detta är vår header</h1>
+		</div>
+	);
 }
 
-export default Header
+export default Header;
