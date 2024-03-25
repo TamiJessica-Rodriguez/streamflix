@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MovieCarousel from "../components/MovieCarousel";
-import SearchMovies from "../components/SearchMovies"; // Ensure this is the correct path
-import { mockedData, movie } from "../data/mockedData";
+import SearchMovies from "../components/SearchMovies";
+import { Movie, mockedData } from "../data/mockedData";
 
 const PreviewPage: React.FC = () => {
-  const [searchResults, setSearchResults] = useState<movie[]>([]);
+  const [searchResults, setSearchResults] = useState<Movie[]>([]); // Use Movie here
   const [isSearchActive, setIsSearchActive] = useState(false);
 
   const trendingMovies = mockedData.filter((movie) => movie.isTrending);
   const nonTrendingMovies = mockedData.filter((movie) => !movie.isTrending);
 
-  
   const getRandomMovies = (movies: typeof mockedData, num = 10) => {
     const shuffled = [...movies].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, num);
@@ -19,7 +18,8 @@ const PreviewPage: React.FC = () => {
   const recommendedMovies = getRandomMovies(nonTrendingMovies);
 
   // Callback function for search results
-  const handleSearchResult = (results: movie[]) => {
+  const handleSearchResult = (results: Movie[]) => {
+    // Use Movie here
     setSearchResults(results);
     setIsSearchActive(true);
   };
