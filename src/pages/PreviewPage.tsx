@@ -39,6 +39,9 @@ const PreviewPage: React.FC = () => {
         <MovieCarousel movies={mockedData} />
         <MovieCarousel movies={mockedData} />
         <MovieCarousel movies={mockedData} />
+        <Link to={"/Bookmarked"}>
+          <button>BookMarked</button>
+        </Link>
       </div>
     </div>
   );
