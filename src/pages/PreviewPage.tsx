@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 import MovieCarousel from "../components/MovieCarousel";
 import { mockedData } from "../data/mockedData";
 
@@ -15,6 +16,9 @@ const PreviewPage: React.FC = () => {
         <MovieCarousel movies={mockedData} />
         <MovieCarousel movies={mockedData} />
         <MovieCarousel movies={mockedData} />
+        <Link to={"/Bookmarked"}>
+          <button>BookMarked</button>
+        </Link>
       </div>
     </div>
   );
