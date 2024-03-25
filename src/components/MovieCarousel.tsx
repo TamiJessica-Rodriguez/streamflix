@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { movie } from "../data/mockedData";
+import { Movie } from "../data/mockedData";
 
 interface MovieCarouselProps {
-  movies: movie[];
+  movies: Movie[];
 }
 
 const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {

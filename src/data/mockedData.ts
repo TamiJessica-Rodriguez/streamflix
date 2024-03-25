@@ -1,4 +1,4 @@
-export interface movie {
+export interface Movie {
   id: number;
   title: string;
   year: number;
@@ -10,7 +10,7 @@ export interface movie {
   isTrending: boolean;
 }
 
-export const mockedData: movie[] = [
+export const mockedData: Movie[] = [
   {
     id: 1,
     title: "The Shawshank Redemption",
