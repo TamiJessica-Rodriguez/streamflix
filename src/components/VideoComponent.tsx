@@ -1,4 +1,6 @@
 import { useState } from "react";
+import volumeFullIcon from "../Icons/volumefull.png";
+import volumeMutedIcon from "../Icons/volumemuted.png";
 
 export default function VideoComponent() {
 	const [muted, setMuted] = useState(true);
@@ -18,9 +20,16 @@ export default function VideoComponent() {
 			></video>
 			<button
 				onClick={toggleMuted}
-				className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-white text-black rounded-full p-2 focus:outline-none"
+				className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-black text-white rounded-full p-2 focus:outline-none"
+				style={{
+					backgroundImage: `url(${muted ? volumeMutedIcon : volumeFullIcon})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+					width: "32px",
+					height: "32px",
+				}}
 			>
-				{muted ? "Unmute" : "Mute"}
+				<span className="sr-only">{muted ? "Unmute" : "Mute"}</span>
 			</button>
 		</div>
 	);
