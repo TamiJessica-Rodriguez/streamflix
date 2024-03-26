@@ -10,30 +10,32 @@ export default function Bookmarked() {
   );
 
   return (
-    <div
-      style={{ backgroundColor: "black", minHeight: "100vh", color: "white" }}
-    >
+    <div className="bg-black min-h-screen p-4 text-white">
       <div className="container mx-auto py-8">
         <Link to="/PreviewPage">
-          <button style={{ color: "black", backgroundColor: "white" }}>
-            PreviewPage
+          <button className="mb-4 text-black bg-white">
+            Tillbaka till förhandsvisning
           </button>
         </Link>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {bookmarkedMovies.map((movie) => (
             <Link
               to={`/infoPage/${movie.id}`}
               key={movie.id}
-              style={{ textDecoration: "none" }}
+              className="no-underline"
             >
-              <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white">
+              <div className="flex flex-col md:flex-row bg-white rounded overflow-hidden shadow-lg">
                 <img
-                  className="w-full"
+                  className="w-full md:w-1/2 h-auto object-cover"
                   src={movie.thumbnail}
                   alt={movie.title}
                 />
-                <div className="px-6 py-4" style={{ color: "black" }}>
-                  <div className="font-bold text-xl mb-2">{movie.title}</div>
+                <div className="px-6 py-4 flex flex-col justify-between">
+                  <div>
+                    <div className="font-bold text-xl text-black mb-2">
+                      {movie.title}
+                    </div>
+                  </div>
                 </div>
               </div>
             </Link>
