@@ -83,14 +83,18 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
         className="absolute left-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
         style={{ top: "50%" }}
       >
-        {/* Left arrow SVG */}
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
       </button>
       <button
         onClick={() => scroll("right")}
         className="absolute right-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
         style={{ top: "50%" }}
       >
-        {/* Right arrow SVG */}
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+          <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+        </svg>
       </button>
     </div>
   );
