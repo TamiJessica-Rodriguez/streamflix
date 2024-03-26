@@ -31,7 +31,7 @@ function Header() {
 				className="flex items-center justify-end flex-grow h-8 w-15 mb-2 sm:mb-0 sm:mr-2"
 				style={{ backgroundColor: "transparent", color: "transparent" }}
 			>
-				{"En tom div en tom div "}
+				{"En tom"}
 			</div>
 		</div>
 	);
