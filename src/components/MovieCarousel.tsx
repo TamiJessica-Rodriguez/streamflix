@@ -4,25 +4,18 @@ import InfoPage from "../pages/InfoPage"; // Importera InfoPage-modalen
 
 interface MovieCarouselProps {
   movies: Movie[];
+  bookmarked: Set<number>;
+  toggleBookmark: (movieId: number) => void;
 }
 
-const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
+const MovieCarousel: React.FC<MovieCarouselProps> = ({
+  movies,
+  bookmarked,
+  toggleBookmark,
+}) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
-  const [bookmarked, setBookmarked] = useState<Set<number>>(new Set());
-
-  const toggleBookmark = (movieId: number) => {
-    setBookmarked((prev) => {
-      const newBookmarks = new Set(prev);
-      if (newBookmarks.has(movieId)) {
-        newBookmarks.delete(movieId);
-      } else {
-        newBookmarks.add(movieId);
-      }
-      return newBookmarks;
-    });
-  };
 
   const handleClick = (movieId: number) => {
     setSelectedMovieId(movieId);
@@ -65,7 +58,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
               >
                 <svg
                   viewBox="0 0 24 24"
-                  fill={bookmarked.has(movie.id) ? "lightGray" : "none"}
+                  fill={bookmarked.has(movie.id) ? "lightgray" : "none"}
                   stroke="currentColor"
                   className="w-6 h-6"
                   strokeWidth="2"
