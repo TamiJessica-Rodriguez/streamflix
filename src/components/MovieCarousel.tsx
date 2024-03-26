@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { Movie } from "../data/mockedData";
+import InfoPage from "../pages/InfoPage"; // Importera InfoPage-modalen
 
 interface MovieCarouselProps {
   movies: Movie[];
@@ -8,7 +8,8 @@ interface MovieCarouselProps {
 
 const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [isDimmed, setIsDimmed] = useState(false);
+  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
+  const [showModal, setShowModal] = useState(false);
   const [bookmarked, setBookmarked] = useState<Set<number>>(new Set());
 
   const toggleBookmark = (movieId: number) => {
@@ -23,35 +24,40 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
     });
   };
 
+  const handleClick = (movieId: number) => {
+    setSelectedMovieId(movieId);
+    setShowModal(true); // Visa modalen när en film klickas på
+  };
+
+  const handleCloseModal = () => {
+    setSelectedMovieId(null);
+    setShowModal(false); // Stäng modalen när användaren klickar på stäng-knappen
+  };
+
   const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
       const { current } = carouselRef;
       const scrollAmount = current.offsetWidth / 3;
       const scrollTo = direction === "left" ? -scrollAmount : scrollAmount;
       current.scrollBy({ left: scrollTo, behavior: "smooth" });
-      setIsDimmed(true);
-      setTimeout(() => setIsDimmed(false), 300);
     }
   };
 
   return (
     <div className="relative flex flex-col items-center">
-      <div
-        className={`${
-          isDimmed ? "opacity-50" : ""
-        } flex overflow-hidden transition-opacity duration-300`}
-        ref={carouselRef}
-      >
+      <div className="flex overflow-hidden" ref={carouselRef}>
         <div className="flex flex-nowrap">
           {movies.map((movie) => (
             <div key={movie.id} className="inline-flex flex-none p-2 relative">
-              <Link to={`/InfoPage/${movie.id}`}>
+              <button onClick={() => handleClick(movie.id)}>
+                {" "}
+                {/* Använd en knapp och onClick för att kalla handleClick */}
                 <img
                   src={movie.thumbnail}
                   alt={movie.title}
                   className="h-48 object-cover"
                 />
-              </Link>
+              </button>
               <button
                 onClick={() => toggleBookmark(movie.id)}
                 className="absolute top-0 right-0 p-2"
@@ -73,7 +79,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
       </div>
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
+        className="absolute left-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out opacity-40 pointer-events-none"
         style={{ top: "50%" }}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -82,13 +88,19 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
       </button>
       <button
         onClick={() => scroll("right")}
-        className="absolute right-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
+        className="absolute right-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out opacity-40 pointer-events-none"
         style={{ top: "50%" }}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
           <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
         </svg>
       </button>
+      {showModal && selectedMovieId && (
+        <InfoPage
+          movieId={selectedMovieId.toString()} // Skicka det valda movieId till InfoPage
+          onCloseModal={handleCloseModal} // Skicka en funktion för att stänga modalen till InfoPage
+        />
+      )}
     </div>
   );
 };
