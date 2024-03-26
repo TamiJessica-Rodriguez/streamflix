@@ -1,47 +1,48 @@
-import { Link } from "react-router-dom";
-import { mockedData } from "../data/mockedData";
+import React, { useState } from "react";
+import { Movie, mockedData } from "../data/mockedData"; 
+import InfoPage from "../pages/InfoPage"; 
 
-export default function Bookmarked() {
-  const bookmarkedIds = JSON.parse(
+const Bookmarked: React.FC = () => {
+  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
+
+  const bookmarkedIds: number[] = JSON.parse(
     localStorage.getItem("bookmarkedMovies") || "[]"
   );
-  const bookmarkedMovies = mockedData.filter((movie) =>
+  const bookmarkedMovies = mockedData.filter((movie: Movie) =>
     bookmarkedIds.includes(movie.id)
   );
+
+  const showMovieDetails = (id: number) => setSelectedMovieId(id);
+  const closeMovieDetails = () => setSelectedMovieId(null);
 
   return (
     <div className="bg-black min-h-screen p-4 text-white">
       <div className="container mx-auto py-8">
-        <Link to="/PreviewPage">
-          <button className="mb-4 text-black bg-white">
-            Tillbaka till förhandsvisning
-          </button>
-        </Link>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {bookmarkedMovies.map((movie) => (
-            <Link
-              to={`/infoPage/${movie.id}`}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {bookmarkedMovies.map((movie: Movie) => (
+            <div
               key={movie.id}
-              className="no-underline"
+              onClick={() => showMovieDetails(movie.id)}
+              className="cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
             >
-              <div className="flex flex-col md:flex-row bg-white rounded overflow-hidden shadow-lg">
-                <img
-                  className="w-full md:w-1/2 h-auto object-cover"
-                  src={movie.thumbnail}
-                  alt={movie.title}
-                />
-                <div className="px-6 py-4 flex flex-col justify-between">
-                  <div>
-                    <div className="font-bold text-xl text-black mb-2">
-                      {movie.title}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+              <img
+                className="w-full h-auto object-cover rounded shadow-lg"
+                src={movie.thumbnail}
+                alt={movie.title}
+              />
+            </div>
           ))}
         </div>
+
+        {selectedMovieId !== null && (
+          <InfoPage
+            movieId={selectedMovieId.toString()}
+            onCloseModal={closeMovieDetails}
+          />
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default Bookmarked;
