@@ -17,7 +17,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<AppLayout />}>
       <Route index element={<WelcomePage />} />
       <Route path="PreviewPage" element={<PreviewPage />} />
-      <Route path="/InfoPage/:movieId" element={<InfoPage />} />
+      <Route path="InfoPage/:movieId" element={<InfoPage />} />
       <Route path="Bookmarked" element={<Bookmarked />} />
       <Route path="*" element={<span>The page does not exist..</span>} />
     </Route>
