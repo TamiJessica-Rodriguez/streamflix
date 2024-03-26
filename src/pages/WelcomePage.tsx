@@ -6,7 +6,7 @@ const WelcomePage: React.FC = () => {
 	return (
 		<div className="bg-black text-white min-h-screen flex flex-col justify-center items-center">
 			<VideoComponent />
-			<p className="text-2xl text-center mb-6 mt-3 welcome-paragraph">
+			<p className="text-2xl text-center mb-4 mt-3 welcome-paragraph">
 				<span style={{ color: "gold", fontWeight: "bold" }}>
 					Welcome to our world of entertainment.
 				</span>
@@ -19,12 +19,21 @@ const WelcomePage: React.FC = () => {
 						<span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-200 to-orange-500 rounded-full transition-all duration-300 z-0"></span>{" "}
 						<span className="absolute inset-0 bg-transparent hover:bg-opacity-50 transition-all duration-200"></span>
 						<style>
-							{`
+							{`                  @media (min-width: 640px) {
+                        .welcome-paragraph, .enter-button {
+                            animation: fadeIn 7s ease-in-out;
+                        }
                                 .relative:hover .text-halo {
                                     font-weight: bold;
+                                    
                                 }
+                                .enter-button:hover .text-halo {
+                                  color: white;
+                              }
                                 .welcome-paragraph, .enter-button {
                                     animation: fadeIn 7s ease-in-out;
+                                }
+                                  
                                 }
                                 @keyframes fadeIn {
                                     0% {
