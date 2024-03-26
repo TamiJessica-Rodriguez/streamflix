@@ -17,7 +17,14 @@ const WelcomePage: React.FC = () => {
 						<span className="text-halo z-10">Enter</span>
 						<span className="absolute inset-0 bg-gradient-to-r from-purple-800 via-purple-500 to-pink-200 rounded-full filter blur-xl transition-all duration-300 z-0"></span>
 						<span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-200 to-orange-500 rounded-full transition-all duration-300 z-0"></span>{" "}
-						<span className="absolute inset-0 bg-transparent hover:bg-opacity-10 transition-all duration-200"></span>
+						<span className="absolute inset-0 bg-transparent hover:bg-opacity-50 transition-all duration-200"></span>
+						<style>
+							{`
+                                .relative:hover .text-halo {
+                                    font-weight: bold;
+                                }
+                            `}
+						</style>
 					</button>
 				</Link>
 			</div>
