@@ -6,14 +6,14 @@ const WelcomePage: React.FC = () => {
 	return (
 		<div className="bg-black text-white min-h-screen flex flex-col justify-center items-center">
 			<VideoComponent />
-			<p className="text-2xl text-center mb-8 mt-3">
+			<p className="text-2xl text-center mb-6 mt-3 welcome-paragraph">
 				<span style={{ color: "gold", fontWeight: "bold" }}>
 					Welcome to our world of entertainment.
 				</span>
 			</p>
 			<div className="p-2">
 				<Link to={"/PreviewPage"}>
-					<button className="relative inline-flex justify-center items-center w-48 md:w-64 h-12 rounded-full text-black text-xl font-semibold font-sans transition-all duration-300 focus:outline-none">
+					<button className="relative inline-flex justify-center items-center w-48 md:w-64 h-12 rounded-full text-black text-xl font-semibold font-sans transition-all duration-300 focus:outline-none enter-button">
 						<span className="text-halo z-10">Enter</span>
 						<span className="absolute inset-0 bg-gradient-to-r from-purple-800 via-purple-500 to-pink-200 rounded-full filter blur-xl transition-all duration-300 z-0"></span>
 						<span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-200 to-orange-500 rounded-full transition-all duration-300 z-0"></span>{" "}
@@ -22,6 +22,17 @@ const WelcomePage: React.FC = () => {
 							{`
                                 .relative:hover .text-halo {
                                     font-weight: bold;
+                                }
+                                .welcome-paragraph, .enter-button {
+                                    animation: fadeIn 5s ease-in-out;
+                                }
+                                @keyframes fadeIn {
+                                    0% {
+                                        opacity: 0;
+                                    }
+                                    100% {
+                                        opacity: 1;
+                                    }
                                 }
                             `}
 						</style>
