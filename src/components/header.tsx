@@ -28,10 +28,10 @@ function Header() {
 				</Link>
 			</div>
 			<div
-				className="flex items-center justify-end"
-				style={{ backgroundColor: "transparent" }}
+				className="flex items-center justify-end flex-grow h-8 w-15 mb-2 sm:mb-0 sm:mr-2"
+				style={{ backgroundColor: "transparent", color: "transparent" }}
 			>
-				{" "}
+				{"En tom div en tom div "}
 			</div>
 		</div>
 	);
