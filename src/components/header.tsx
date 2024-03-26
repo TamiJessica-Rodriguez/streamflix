@@ -16,14 +16,14 @@ function Header() {
 					/>
 				</Link>
 			</div>
-			<div className="flex-grow flex justify-center p-2 pl-0 font-bold font-mono text-black text-xl">
-				<Link to="/" className="p-2 text-black">
+			<div className="flex-grow flex justify-center p-2 pl-0 font-bold text-black text-xl">
+				<Link to="/" className="p-2 text-black m-2">
 					Home
 				</Link>
-				<Link to="/PreviewPage" className="p-2">
+				<Link to="/PreviewPage" className="p-2 m-2">
 					Preview
 				</Link>
-				<Link to="/Bookmarked" className="p-2">
+				<Link to="/Bookmarked" className="p-2 m-2">
 					Favorites
 				</Link>
 			</div>
