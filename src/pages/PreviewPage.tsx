@@ -158,23 +158,40 @@ import { Movie, mockedData } from "../data/mockedData";
 const PreviewPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [bookmarked, setBookmarked] = useState<Set<number>>(new Set());
+  // Använd en useState för att hantera bokmärkta filmer. Initiera från localStorage om möjligt.
+  const [bookmarked, setBookmarked] = useState<Set<number>>(() => {
+    const stored = localStorage.getItem("bookmarkedMovies");
+    return new Set(stored ? JSON.parse(stored) : []);
+  });
 
   useEffect(() => {
-    // Load bookmarked IDs from local storage on component mount
-    const storedBookmarks = JSON.parse(
-      localStorage.getItem("bookmarkedMovies") || "[]"
-    );
-    setBookmarked(new Set(storedBookmarks));
-  }, []);
-
-  useEffect(() => {
-    // Update local storage whenever the bookmarked state changes
+    // Lyssna på förändringar i bookmarked och uppdatera localStorage därefter.
     localStorage.setItem(
       "bookmarkedMovies",
       JSON.stringify(Array.from(bookmarked))
     );
   }, [bookmarked]);
+
+  // const PreviewPage: React.FC = () => {
+  //   const [searchResults, setSearchResults] = useState<Movie[]>([]);
+  //   const [isSearchActive, setIsSearchActive] = useState(false);
+  //   const [bookmarked, setBookmarked] = useState<Set<number>>(new Set());
+
+  //   useEffect(() => {
+  //     // Load bookmarked IDs from local storage on component mount
+  //     const storedBookmarks = JSON.parse(
+  //       localStorage.getItem("bookmarkedMovies") || "[]"
+  //     );
+  //     setBookmarked(new Set(storedBookmarks));
+  //   }, []);
+
+  //   useEffect(() => {
+  //     // Update local storage whenever the bookmarked state changes
+  //     localStorage.setItem(
+  //       "bookmarkedMovies",
+  //       JSON.stringify(Array.from(bookmarked))
+  //     );
+  //   }, [bookmarked]);
 
   const toggleBookmark = (movieId: number) => {
     setBookmarked((prev) => {
