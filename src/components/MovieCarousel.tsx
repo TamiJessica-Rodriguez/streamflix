@@ -45,13 +45,6 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
         <div className="flex flex-nowrap">
           {movies.map((movie) => (
             <div key={movie.id} className="inline-flex flex-none p-2 relative">
-              {/* <Link to={"/InfoPage/" + movie.id}>
-                <img
-                  src={movie.thumbnail}
-                  alt={movie.title}
-                  className="h-48 object-cover"
-                />
-              </Link> */}
               <Link to={`/InfoPage/${movie.id}`}>
                 <img
                   src={movie.thumbnail}
@@ -66,7 +59,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
               >
                 <svg
                   viewBox="0 0 24 24"
-                  fill={bookmarked.has(movie.id) ? "red" : "none"}
+                  fill={bookmarked.has(movie.id) ? "lightGray" : "none"}
                   stroke="currentColor"
                   className="w-6 h-6"
                   strokeWidth="2"
