@@ -24,7 +24,7 @@ const WelcomePage: React.FC = () => {
                                     font-weight: bold;
                                 }
                                 .welcome-paragraph, .enter-button {
-                                    animation: fadeIn 5s ease-in-out;
+                                    animation: fadeIn 7s ease-in-out;
                                 }
                                 @keyframes fadeIn {
                                     0% {
