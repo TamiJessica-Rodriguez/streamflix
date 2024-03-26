@@ -22,9 +22,9 @@ export default function Bookmarked() {
         <div className="grid grid-cols-4 gap-4">
           {bookmarkedMovies.map((movie) => (
             <Link
-              to={`/info/${movie.id}`}
+              to={`/infoPage/${movie.id}`}
               key={movie.id}
-              className="text-black no-underline"
+              style={{ textDecoration: "none" }}
             >
               <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white">
                 <img
@@ -32,7 +32,7 @@ export default function Bookmarked() {
                   src={movie.thumbnail}
                   alt={movie.title}
                 />
-                <div className="px-6 py-4">
+                <div className="px-6 py-4" style={{ color: "black" }}>
                   <div className="font-bold text-xl mb-2">{movie.title}</div>
                 </div>
               </div>
