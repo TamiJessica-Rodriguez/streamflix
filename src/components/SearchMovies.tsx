@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useState } from "react";
-import { Movie } from "../data/mockedData"; // Note the uppercase M in Movie
+import { Movie } from "../data/mockedData"; 
 
 interface SearchMoviesProps {
-  movies: Movie[]; // Use the corrected name here as well
-  onSearchResult: (result: Movie[]) => void; // And here
+  movies: Movie[];
+  onSearchResult: (result: Movie[]) => void; 
 }
 
 const SearchMovies: React.FC<SearchMoviesProps> = ({
