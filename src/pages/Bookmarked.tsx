@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Movie, mockedData } from "../data/mockedData"; 
-import InfoPage from "../pages/InfoPage"; 
+import { Movie, mockedData } from "../data/mockedData";
+import InfoPage from "../pages/InfoPage";
 
 const Bookmarked: React.FC = () => {
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
@@ -18,7 +18,7 @@ const Bookmarked: React.FC = () => {
   return (
     <div className="bg-black min-h-screen p-4 text-white">
       <div className="container mx-auto py-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {bookmarkedMovies.map((movie: Movie) => (
             <div
               key={movie.id}
