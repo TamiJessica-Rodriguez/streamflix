@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import MovieCarousel from "../components/MovieCarousel";
 import SearchMovies from "../components/SearchMovies";
 import { Movie, mockedData } from "../data/mockedData";
@@ -93,10 +92,6 @@ const PreviewPage: React.FC = () => {
             toggleBookmark={toggleBookmark}
           />
         </div>
-
-        <Link to="/Bookmarked">
-          <button>Bookmarked</button>
-        </Link>
       </div>
     </div>
   );
