@@ -47,13 +47,13 @@ const InfoPage: React.FC<InfoPageProps> = ({ movieId, onCloseModal }) => {
           >
             <div className="p-4">
               <button
-                onClick={() => toggleBookmark(movie.id)}
+                onClick={() => toggleBookmark()}
                 className="absolute top-0 right-0 p-2"
                 aria-label="Bookmark"
               >
                 <svg
                   viewBox="0 0 24 24"
-                  fill={bookmarked.has(movie.id) ? "lightgray" : "none"}
+                  fill={bookmarked.has() ? "lightgray" : "none"}
                   stroke="currentColor"
                   className="w-6 h-6"
                   strokeWidth="2"
