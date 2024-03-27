@@ -4,9 +4,15 @@ import InfoPage from "../pages/InfoPage";
 
 interface MovieCarouselProps {
   movies: Movie[];
+  bookmarked: Set<number>;
+  toggleBookmark: (movieId: number) => void;
 }
 
-const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
+const MovieCarousel: React.FC<MovieCarouselProps> = ({
+  movies,
+  bookmarked,
+  toggleBookmark,
+}) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
@@ -43,6 +49,28 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
                 className="h-48 object-cover cursor-pointer"
                 onClick={() => handleClick(movie.id)}
               />
+              <button
+                className="absolute top-2 right-2 text-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleBookmark(movie.id);
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill={bookmarked.has(movie.id) ? "Lightgray" : "none"}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
             </div>
           ))}
         </div>
