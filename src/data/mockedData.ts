@@ -1,4 +1,5 @@
 export interface Movie {
+  isBookmarked: any;
   id: number;
   title: string;
   year: number;

@@ -1,7 +1,46 @@
+
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
 function Header() {
 	return (
-		<div className="bg-gray-950 text-white p-4">
-			<h1>Detta är vår header</h1>
+		<div
+			className="flex flex-col sm:flex-row items-center justify-between bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600
+        text-white p-4"
+		>
+			{" "}
+			<div className="flex-grow flex items-center sm:mr-4 p-2 pr-0">
+				<Link to="/">
+					<img
+						src="src\images\newlogo.png"
+						alt="Logo"
+						className="h-8 w-15 mb-2 sm:mb-0 sm:mr-2"
+					/>
+				</Link>
+			</div>
+			{/* Navigation Links */}
+			<div className="flex-grow flex justify-center p-2 pl-0 font-bold text-black text-xl">
+				<Link to="/" className="p-2 text-black m-2 hover:text-white">
+					Home
+				</Link>
+				<Link to="/PreviewPage" className="p-2 m-2 hover:text-white">
+					Preview
+				</Link>
+				<Link
+					to="/Bookmarked"
+					className="p-2 m-2 flex items-center hover:text-white"
+				>
+					Favorites <FontAwesomeIcon icon={faHeart} className="ml-1" />
+				</Link>
+			</div>
+			<div
+				className="flex items-center justify-end flex-grow h-8 w-15 mb-2 sm:mb-0 sm:mr-2"
+				style={{ backgroundColor: "transparent", color: "transparent" }}
+			>
+				{"En tom div tom"}
+			</div>
+
 		</div>
 	);
 }
