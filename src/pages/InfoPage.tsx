@@ -1,28 +1,20 @@
 import React, { useEffect, useRef } from "react";
+import { useBookmarked } from "../context/BookmarkedContext";
 import { mockedData } from "../data/mockedData";
 
 interface InfoPageProps {
   movieId: string; // Lägg till movieId i props
   onCloseModal: () => void;
-  toggleBookmark: (movieId: number) => void;
 }
 
-const InfoPage: React.FC<InfoPageProps> = ({
-  movieId,
-  onCloseModal,
-  toggleBookmark,
-}) => {
+const InfoPage: React.FC<InfoPageProps> = ({ movieId, onCloseModal }) => {
   const movie = mockedData.find((movie) => movie.id.toString() === movieId);
   const modalRef = useRef<HTMLDivElement>(null);
+  const { bookmarked, toggleBookmark } = useBookmarked();
 
   const handleClose = () => {
     onCloseModal();
   };
-
-  // const [bookmarked, setBookmarked] = useState<Set<number>>(() => {
-  //   const stored = localStorage.getItem("bookmarkedMovies");
-  //   return new Set(stored ? JSON.parse(stored) : []);
-  // });
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
