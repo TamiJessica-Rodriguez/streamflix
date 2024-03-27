@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="bg-neutral-950 text-white flex flex-col md:flex-row justify-between p-10">
+    <div className="bg-neutral-950 text-black flex flex-col md:flex-row justify-between p-10 bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600">
       <div className="flex-1 md:mb-0"></div>
       <div className="flex justify-center flex-1 md:mb-0 sm:text-md">
         <p>Copyright 2024 ©️</p>
