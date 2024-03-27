@@ -1,3 +1,5 @@
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -7,7 +9,7 @@ function Header() {
         text-white p-4"
 		>
 			{" "}
-			<div className="flex items-center sm:mr-4 p-2 pr-0">
+			<div className="flex-grow flex items-center sm:mr-4 p-2 pr-0">
 				<Link to="/">
 					<img
 						src="src\images\newlogo.png"
@@ -16,22 +18,26 @@ function Header() {
 					/>
 				</Link>
 			</div>
+			{/* Navigation Links */}
 			<div className="flex-grow flex justify-center p-2 pl-0 font-bold text-black text-xl">
-				<Link to="/" className="p-2 text-black m-2">
+				<Link to="/" className="p-2 text-black m-2 hover:text-white">
 					Home
 				</Link>
-				<Link to="/PreviewPage" className="p-2 m-2">
+				<Link to="/PreviewPage" className="p-2 m-2 hover:text-white">
 					Preview
 				</Link>
-				<Link to="/Bookmarked" className="p-2 m-2">
-					Favorites
+				<Link
+					to="/Bookmarked"
+					className="p-2 m-2 flex items-center hover:text-white"
+				>
+					Favorites <FontAwesomeIcon icon={faHeart} className="ml-1" />
 				</Link>
 			</div>
 			<div
 				className="flex items-center justify-end flex-grow h-8 w-15 mb-2 sm:mb-0 sm:mr-2"
 				style={{ backgroundColor: "transparent", color: "transparent" }}
 			>
-				{"En tom"}
+				{"En tom div tom"}
 			</div>
 		</div>
 	);
