@@ -7,6 +7,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import AppLayout from "./AppLayout";
+import { BookmarkedContextProvider } from "./context/BookmarkedContext";
 import Bookmarked from "./pages/Bookmarked";
 import InfoPage from "./pages/InfoPage";
 import PreviewPage from "./pages/PreviewPage";
@@ -26,6 +27,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BookmarkedContextProvider>
+      <RouterProvider router={router} />
+    </BookmarkedContextProvider>
   </React.StrictMode>
 );
