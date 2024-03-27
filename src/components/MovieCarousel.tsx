@@ -117,6 +117,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
         <InfoPage
           movieId={selectedMovieId.toString()}
           onCloseModal={handleCloseModal}
+          toggleBookmark={toggleBookmark}
         />
       )}
     </div>

@@ -4,16 +4,25 @@ import { mockedData } from "../data/mockedData";
 interface InfoPageProps {
   movieId: string; // Lägg till movieId i props
   onCloseModal: () => void;
+  toggleBookmark: (movieId: number) => void;
 }
 
-const InfoPage: React.FC<InfoPageProps> = ({ movieId, onCloseModal }) => {
-  // Ta emot movieId från props
+const InfoPage: React.FC<InfoPageProps> = ({
+  movieId,
+  onCloseModal,
+  toggleBookmark,
+}) => {
   const movie = mockedData.find((movie) => movie.id.toString() === movieId);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClose = () => {
-    onCloseModal(); // Anropa funktionen för att stänga modalen som skickades från parent-komponenten
+    onCloseModal();
   };
+
+  // const [bookmarked, setBookmarked] = useState<Set<number>>(() => {
+  //   const stored = localStorage.getItem("bookmarkedMovies");
+  //   return new Set(stored ? JSON.parse(stored) : []);
+  // });
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,13 +55,13 @@ const InfoPage: React.FC<InfoPageProps> = ({ movieId, onCloseModal }) => {
           >
             <div className="p-4">
               <button
-                // onClick={() => toggleBookmark(movie.id)}
+                onClick={() => toggleBookmark(movie.id)}
                 className="absolute top-0 right-0 p-2"
                 aria-label="Bookmark"
               >
                 <svg
                   viewBox="0 0 24 24"
-                  // fill={bookmarked.has(movie.id) ? "lightgray" : "none"}
+                  fill={bookmarked.has(movie.id) ? "lightgray" : "none"}
                   stroke="currentColor"
                   className="w-6 h-6"
                   strokeWidth="2"
