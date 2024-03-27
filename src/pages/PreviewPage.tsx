@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MovieCarousel from "../components/MovieCarousel";
 import SearchMovies from "../components/SearchMovies";
+import { useBookmarked } from "../context/BookmarkedContext";
 import { Movie, mockedData } from "../data/mockedData";
 
 const PreviewPage: React.FC = () => {
+  const { bookmarked, toggleBookmark } = useBookmarked();
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [bookmarked, setBookmarked] = useState<Set<number>>(() => {
-    const stored = localStorage.getItem("bookmarkedMovies");
-    return new Set(stored ? JSON.parse(stored) : []);
-  });
 
   useEffect(() => {
     localStorage.setItem(
@@ -18,18 +16,6 @@ const PreviewPage: React.FC = () => {
       JSON.stringify(Array.from(bookmarked))
     );
   }, [bookmarked]);
-
-  const toggleBookmark = (movieId: number) => {
-    setBookmarked((prev) => {
-      const newBookmarks = new Set(prev);
-      if (newBookmarks.has(movieId)) {
-        newBookmarks.delete(movieId);
-      } else {
-        newBookmarks.add(movieId);
-      }
-      return newBookmarks;
-    });
-  };
 
   // Filtering movies
   const trendingMovies = mockedData.filter((movie) => movie.isTrending);
