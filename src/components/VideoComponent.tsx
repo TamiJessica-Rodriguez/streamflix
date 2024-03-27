@@ -10,7 +10,7 @@ export default function VideoComponent() {
 	};
 
 	return (
-		<div className="relative">
+		<div className="relative mt-[-3rem]">
 			<video
 				className="w-full h-full object-cover"
 				src="src\video\The Dark Knight.mp4"
