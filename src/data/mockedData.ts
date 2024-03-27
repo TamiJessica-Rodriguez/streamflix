@@ -1,4 +1,5 @@
 export interface Movie {
+  isBookmarked: any;
   id: number;
   title: string;
   year: number;
@@ -142,7 +143,7 @@ export const mockedData: Movie[] = [
     isTrending: true,
   },
   {
-    id: 10,
+    id: 11,
     title: "Forrest Gump",
     year: 1994,
     rating: "PG-13",
@@ -155,7 +156,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 11,
+    id: 12,
     title: "Inception",
     year: 2010,
     rating: "PG-13",
@@ -168,7 +169,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 12,
+    id: 13,
     title: "The Lord of the Rings: The Fellowship of the Ring",
     year: 2001,
     rating: "PG-13",
@@ -181,7 +182,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 13,
+    id: 14,
     title: "Star Wars: Episode V - The Empire Strikes Back",
     year: 1980,
     rating: "PG",
@@ -194,7 +195,7 @@ export const mockedData: Movie[] = [
     isTrending: true,
   },
   {
-    id: 14,
+    id: 15,
     title: "The Matrix",
     year: 1999,
     rating: "R",
@@ -207,7 +208,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 5,
+    id: 16,
     title: "Goodfellas",
     year: 1990,
     rating: "R",
@@ -220,7 +221,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 16,
+    id: 17,
     title: "One Flew Over the Cuckoo's Nest",
     year: 1975,
     rating: "R",
@@ -233,7 +234,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 17,
+    id: 18,
     title: "Seven Samurai",
     year: 1954,
     rating: "Not Rated",
@@ -246,7 +247,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 18,
+    id: 19,
     title: "The Silence of the Lambs",
     year: 1991,
     rating: "R",
@@ -259,7 +260,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 19,
+    id: 20,
     title: "Casablanca",
     year: 1942,
     rating: "PG",
@@ -272,7 +273,7 @@ export const mockedData: Movie[] = [
     isTrending: true,
   },
   {
-    id: 20,
+    id: 21,
     title: "The Lord of the Rings: The Two Towers",
     year: 2002,
     rating: "PG-13",
@@ -285,7 +286,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 21,
+    id: 22,
     title: "Indiana Jones and the Raiders of the Lost Ark",
     year: 1981,
     rating: "PG",
@@ -298,7 +299,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 22,
+    id: 23,
     title: "City of God",
     year: 2002,
     rating: "R",
@@ -311,7 +312,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 23,
+    id: 24,
     title: "Once Upon a Time in the West",
     year: 1968,
     rating: "PG-13",
@@ -324,7 +325,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 24,
+    id: 25,
     title: "The Departed",
     year: 2006,
     rating: "R",
@@ -337,7 +338,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 25,
+    id: 26,
     title: "Rear Window",
     year: 1954,
     rating: "PG",
@@ -350,7 +351,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 26,
+    id: 27,
     title: "Gladiator",
     year: 2000,
     rating: "R",
@@ -363,7 +364,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 27,
+    id: 28,
     title: "Terminator 2: Judgment Day",
     year: 1991,
     rating: "R",
@@ -376,7 +377,7 @@ export const mockedData: Movie[] = [
     isTrending: true,
   },
   {
-    id: 28,
+    id: 29,
     title: "Whiplash",
     year: 2014,
     rating: "R",
@@ -389,7 +390,7 @@ export const mockedData: Movie[] = [
     isTrending: false,
   },
   {
-    id: 29,
+    id: 30,
     title: "Psycho",
     year: 1960,
     rating: "R",
