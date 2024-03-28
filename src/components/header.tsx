@@ -51,7 +51,7 @@ function Header() {
         )}
       </div>
       {ratingVisible && FEATURE_FLAG_RATING_SYSTEM && (
-        <div className="absolute top-full right-0 mt-2 bg-white p-4 shadow-lg rounded z-10 flex justify-around w-48">
+        <div className="absolute top-full right-0 mt-2 bg-black p-4 shadow-lg rounded z-10 flex justify-around w-48">
           {Array.from({ length: 5 }, (_, index: number) => (
             <FontAwesomeIcon
               key={index}
