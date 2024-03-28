@@ -27,13 +27,13 @@ const PreviewPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-black text-white py-8">
+    <div className="bg-black py-8 text-white">
       <div className="container mx-auto space-y-8 px-4 md:px-8">
         <SearchMovies movies={mockedData} onSearchResult={handleSearchResult} />
 
         {isSearchActive && searchResults.length > 0 && (
           <div>
-            <h2 className="text-center text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-center text-2xl font-semibold">
               Search Results
             </h2>
             <MovieCarousel
@@ -49,7 +49,7 @@ const PreviewPage: React.FC = () => {
         )}
 
         <div>
-          <h2 className="text-center text-2xl font-semibold mb-4">
+          <h2 className="mb-4 text-center text-2xl font-semibold">
             Recommended for You
           </h2>
           <MovieCarousel
@@ -59,7 +59,7 @@ const PreviewPage: React.FC = () => {
           />
         </div>
         <div>
-          <h2 className="text-center text-2xl font-semibold mb-4">
+          <h2 className="mb-4 text-center text-2xl font-semibold">
             Trending Now
           </h2>
           <MovieCarousel
@@ -69,7 +69,7 @@ const PreviewPage: React.FC = () => {
           />
         </div>
         <div>
-          <h2 className="text-center text-2xl font-semibold mb-4">
+          <h2 className="mb-4 text-center text-2xl font-semibold">
             All Movies
           </h2>
           <MovieCarousel

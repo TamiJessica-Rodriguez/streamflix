@@ -36,29 +36,29 @@ const InfoPage: React.FC<InfoPageProps> = ({ movieId, onCloseModal }) => {
 
   return (
     <div className="text-white">
-      <div className="fixed z-10 inset-0 overflow-y-auto">
-        <div className="flex items-center justify-center min-h-screen">
+      <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="flex min-h-screen items-center justify-center">
           <div className="fixed inset-0 transition-opacity" aria-hidden="true">
             <div className="absolute inset-0 bg-black opacity-75"></div>
           </div>
 
           <div
-            className="bg-stone-950
-             rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full"
+            className="transform
+             overflow-hidden rounded-lg bg-stone-950 shadow-xl transition-all sm:w-full sm:max-w-lg"
             ref={modalRef}
           >
             <div className="p-4">
               {movie && (
                 <button
                   onClick={() => toggleBookmark(movie.id)}
-                  className="absolute top-0 right-0 p-2"
+                  className="absolute right-0 top-0 p-2"
                   aria-label="Bookmark"
                 >
                   <svg
                     viewBox="0 0 24 24"
                     fill={bookmarked.has(movie.id) ? "lightgray" : "none"}
                     stroke="currentColor"
-                    className="w-6 h-6"
+                    className="size-6"
                     strokeWidth="2"
                   >
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>

@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useState } from "react";
-import { Movie } from "../data/mockedData"; 
+import { Movie } from "../data/mockedData";
 
 interface SearchMoviesProps {
   movies: Movie[];
-  onSearchResult: (result: Movie[]) => void; 
+  onSearchResult: (result: Movie[]) => void;
 }
 
 const SearchMovies: React.FC<SearchMoviesProps> = ({
@@ -29,7 +29,7 @@ const SearchMovies: React.FC<SearchMoviesProps> = ({
         type="text"
         value={searchTerm}
         onChange={handleSearch}
-        className="input input-bordered w-full max-w-xs md:max-w-md lg:max-w-lg text-black text-lg py-3 px-4 rounded-full focus:ring focus:ring-opacity-50 focus:ring-indigo-300"
+        className="input input-bordered w-full max-w-xs rounded-full px-4 py-3 text-lg text-black focus:ring focus:ring-indigo-300 focus:ring-opacity-50 md:max-w-md lg:max-w-lg"
         placeholder="Search movies..."
         style={{ maxWidth: "40%" }}
       />

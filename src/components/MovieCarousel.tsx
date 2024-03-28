@@ -42,15 +42,15 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
       <div className="flex overflow-hidden" ref={carouselRef}>
         <div className="flex flex-nowrap">
           {movies.map((movie) => (
-            <div key={movie.id} className="inline-flex flex-none p-2 relative">
+            <div key={movie.id} className="relative inline-flex flex-none p-2">
               <img
                 src={movie.thumbnail}
                 alt={movie.title}
-                className="h-48 object-cover cursor-pointer"
+                className="h-48 cursor-pointer object-cover"
                 onClick={() => handleClick(movie.id)}
               />
               <button
-                className="absolute top-2 right-2 text-white"
+                className="absolute right-2 top-2 text-white"
                 onClick={(e) => {
                   e.stopPropagation();
                   toggleBookmark(movie.id);
@@ -61,7 +61,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
                   viewBox="0 0 24 24"
                   fill={bookmarked.has(movie.id) ? "Lightgray" : "none"}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="size-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -77,14 +77,14 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
       </div>
       <button
         onClick={(e) => scroll("left", e)}
-        className="absolute left-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
+        className="absolute left-0 z-20 m-2 rounded-full bg-black bg-opacity-50 p-2 text-white transition duration-300 ease-in-out hover:bg-opacity-70"
         style={{ top: "50%" }}
       >
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          className="w-6 h-6"
+          className="size-6"
         >
           <path
             strokeLinecap="round"
@@ -96,14 +96,14 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
       </button>
       <button
         onClick={(e) => scroll("right", e)}
-        className="absolute right-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
+        className="absolute right-0 z-20 m-2 rounded-full bg-black bg-opacity-50 p-2 text-white transition duration-300 ease-in-out hover:bg-opacity-70"
         style={{ top: "50%" }}
       >
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          className="w-6 h-6"
+          className="size-6"
         >
           <path
             strokeLinecap="round"
