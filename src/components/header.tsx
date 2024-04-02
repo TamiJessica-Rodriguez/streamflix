@@ -23,9 +23,10 @@ function Header() {
   //     console.log("Uppdaterar rating till:", newRating); // Lägg till denna loggning
   //     setRating(newRating);
   //   }
-  // };
+  // };s
 
-  const handleRating = (newRating: number) => {
+  const handleRating = (index: number) => {
+    const newRating = index + 1; // Lägg till 1 för att kompensera för indexstart på 0
     setRating(newRating);
   };
 
