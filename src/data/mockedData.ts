@@ -9,7 +9,7 @@ export interface Movie {
   synopsis: string;
   thumbnail: string;
   isTrending: boolean;
-  isRating?: number;
+  isRating: number;
 }
 
 export const mockedData: Movie[] = [
