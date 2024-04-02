@@ -6,12 +6,16 @@ const MovieList = () => {
   const { rating } = useRating();
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
 
-  useEffect(() => {
-    // Notera: Om rating är 0, visar vi inte längre alla filmer.
-    // Justera detta beteende enligt dina behov.
-    const filtered =
-      rating > 0 ? mockedData.filter((movie) => movie.isRating === rating) : [];
+  //   useEffect(() => {
+  //     console.log("Aktuellt rating från kontexten:", rating); // Loggar det aktuella rating-värdet
+  //     const filtered = mockedData.filter((movie) => movie.isRating === rating);
+  //     setFilteredMovies(filtered);
+  //   }, [rating]);
 
+  useEffect(() => {
+    console.log("Aktuellt rating från kontexten:", rating); // Verifiera att detta loggar korrekt värde
+    const filtered = mockedData.filter((movie) => movie.isRating === rating);
+    console.log("Filtrerade filmer baserat på betyg:", filtered); // Se vad som faktiskt filtreras
     setFilteredMovies(filtered);
   }, [rating]);
 
