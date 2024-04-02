@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRating } from "../context/RatingContext";
 
-const FEATURE_FLAG_RATING_SYSTEM = true;
+const FEATURE_FLAG_RATING_SYSTEM = false;
 
 function Header() {
   const { rating, setRating } = useRating();
