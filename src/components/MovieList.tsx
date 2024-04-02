@@ -6,16 +6,10 @@ const MovieList = () => {
   const { rating } = useRating();
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
 
-  //   useEffect(() => {
-  //     console.log("Aktuellt rating från kontexten:", rating); // Loggar det aktuella rating-värdet
-  //     const filtered = mockedData.filter((movie) => movie.isRating === rating);
-  //     setFilteredMovies(filtered);
-  //   }, [rating]);
-
   useEffect(() => {
-    console.log("Aktuellt rating från kontexten:", rating); // Verifiera att detta loggar korrekt värde
+    console.log("Aktuellt rating från kontexten:", rating);
     const filtered = mockedData.filter((movie) => movie.isRating === rating);
-    console.log("Filtrerade filmer baserat på betyg:", filtered); // Se vad som faktiskt filtreras
+    console.log("Filtrerade filmer baserat på betyg:", filtered);
     setFilteredMovies(filtered);
   }, [rating]);
 
@@ -26,7 +20,6 @@ const MovieList = () => {
           <div key={movie.id}>
             <h2>{movie.title}</h2>
             <p>{movie.synopsis}</p>
-            {/* Ytterligare detaljer */}
           </div>
         ))
       ) : (
