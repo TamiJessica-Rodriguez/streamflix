@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import MovieCarousel from "../components/MovieCarousel";
-import MovieList from "../components/MovieList";
 import SearchMovies from "../components/SearchMovies";
 import { useBookmarked } from "../context/BookmarkedContext";
 import { useRating } from "../context/RatingContext";
@@ -38,7 +37,6 @@ const PreviewPage: React.FC = () => {
   return (
     <div className="bg-black text-white py-8">
       <div className="container mx-auto space-y-8 px-4 md:px-8">
-        <MovieList />
         <SearchMovies movies={mockedData} onSearchResult={handleSearchResult} />
 
         {isSearchActive && searchResults.length > 0 && (
