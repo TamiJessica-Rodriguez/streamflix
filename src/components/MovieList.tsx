@@ -32,15 +32,13 @@
 // export default MovieList;
 
 import { useEffect, useState } from "react";
-import { useRating } from "../context/RatingContext"; // Importera din RatingContext hook
-import { Movie, mockedData } from "../data/mockedData"; // Antag att detta är din datafil
-
+import { useRating } from "../context/RatingContext";
+import { Movie, mockedData } from "../data/mockedData";
 const MovieList = () => {
-  const { rating } = useRating(); // Använd rating från kontext
+  const { rating } = useRating();
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    // Filtrera filmer baserat på det valda betyget
     const newFilteredMovies = mockedData.filter(
       (movie) => movie.isRating === rating
     );

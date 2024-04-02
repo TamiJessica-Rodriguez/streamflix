@@ -8,7 +8,7 @@ interface RatingContextType {
 const RatingContext = createContext<RatingContextType | undefined>(undefined);
 
 export const RatingProvider = ({ children }: { children: ReactNode }) => {
-  const [rating, setRating] = useState<number>(0); // Startvärde för rating
+  const [rating, setRating] = useState<number>(0); 
 
   const value = { rating, setRating };
 
@@ -17,7 +17,7 @@ export const RatingProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// Hook för att använda kontexten
+
 export const useRating = () => {
   const context = useContext(RatingContext);
   if (context === undefined) {

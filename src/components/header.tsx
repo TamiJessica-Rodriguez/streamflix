@@ -9,7 +9,6 @@ const FEATURE_FLAG_RATING_SYSTEM = true;
 function Header() {
   const { rating, setRating } = useRating();
   const [ratingVisible, setRatingVisible] = useState(false);
-  // const [rating, setRating] = useState(0); // Antag att detta är din globala betygsstatus
 
   const toggleRatingVisibility = () => {
     if (FEATURE_FLAG_RATING_SYSTEM) {
@@ -17,16 +16,8 @@ function Header() {
     }
   };
 
-  // const handleRating = (index: number) => {
-  //   if (FEATURE_FLAG_RATING_SYSTEM) {
-  //     const newRating = index + 1;
-  //     console.log("Uppdaterar rating till:", newRating); // Lägg till denna loggning
-  //     setRating(newRating);
-  //   }
-  // };s
-
   const handleRating = (index: number) => {
-    const newRating = index + 1; // Lägg till 1 för att kompensera för indexstart på 0
+    const newRating = index + 1;
     setRating(newRating);
   };
 
