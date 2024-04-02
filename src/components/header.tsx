@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const FEATURE_FLAG_RATING_SYSTEM: boolean = false;
+const FEATURE_FLAG_RATING_SYSTEM: boolean = true;
 
 function Header() {
   const [ratingVisible, setRatingVisible] = useState<boolean>(false);

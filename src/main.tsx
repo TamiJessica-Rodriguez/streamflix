@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import { BookmarkedContextProvider } from "./context/BookmarkedContext";
+import { RatingProvider } from "./context/RatingContext";
 import Bookmarked from "./pages/Bookmarked";
 import InfoPage from "./pages/InfoPage";
 import PreviewPage from "./pages/PreviewPage";
@@ -27,8 +28,10 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BookmarkedContextProvider>
-      <RouterProvider router={router} />
-    </BookmarkedContextProvider>
+    <RatingProvider>
+      <BookmarkedContextProvider>
+        <RouterProvider router={router} />
+      </BookmarkedContextProvider>
+    </RatingProvider>
   </React.StrictMode>
 );

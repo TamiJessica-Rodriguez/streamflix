@@ -9,6 +9,7 @@ export interface Movie {
   synopsis: string;
   thumbnail: string;
   isTrending: boolean;
+  isRating?: number;
 }
 
 export const mockedData: Movie[] = [
@@ -25,6 +26,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 3,
   },
   {
     id: 2,
@@ -39,6 +41,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 2,
   },
   {
     id: 3,
@@ -53,6 +56,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX380_CR0,0,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
+    isRating: 5,
   },
   {
     id: 4,
@@ -67,6 +71,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 5,
   },
   {
     id: 5,
@@ -81,6 +86,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 4,
   },
   {
     id: 6,
@@ -95,6 +101,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 3,
   },
   {
     id: 7,
@@ -109,6 +116,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: true,
     isBookmarked: false,
+    isRating: 2,
   },
   {
     id: 8,
@@ -123,6 +131,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 1,
   },
   {
     id: 9,
@@ -137,6 +146,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 2,
   },
   {
     id: 10,
@@ -151,6 +161,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BODQ0OWJiMzktYjNlYi00MzcwLThlZWMtMzRkYTY4ZDgxNzgxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX960_.jpg",
     isTrending: true,
     isBookmarked: false,
+    isRating: 3,
   },
   {
     id: 11,
@@ -165,6 +176,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 4,
   },
   {
     id: 12,
@@ -179,6 +191,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 5,
   },
   {
     id: 13,
@@ -193,6 +206,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 4,
   },
   {
     id: 14,
@@ -207,6 +221,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: true,
     isBookmarked: false,
+    isRating: 3,
   },
   {
     id: 15,
@@ -221,6 +236,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 2,
   },
   {
     id: 16,
@@ -235,6 +251,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 1,
   },
   {
     id: 17,
@@ -249,6 +266,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 2,
   },
   {
     id: 18,
@@ -263,6 +281,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTAzY2Q4OGUtMzg4Ni00YTBlLThkMDgtMTVlMjY0ZGRlMzdjXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_FMjpg_UX1000_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 3,
   },
   {
     id: 19,
@@ -277,6 +296,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 4,
   },
   {
     id: 20,
@@ -291,6 +311,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_QL75_UX380_CR0,5,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
+    isRating: 5,
   },
   {
     id: 21,
@@ -305,6 +326,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,14,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 4,
   },
   {
     id: 22,
@@ -319,6 +341,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNTU2ODkyY2MtMjU1NC00NjE1LWEzYjgtMWQ3MzRhMTE0NDc0XkEyXkFqcGdeQXVyMjM4MzQ4OTQ@._V1_QL75_UY562_CR1,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 3,
   },
   {
     id: 23,
@@ -333,6 +356,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMGU5OWEwZDItNmNkMC00NzZmLTk1YTctNzVhZTJjM2NlZTVmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 2,
   },
   {
     id: 24,
@@ -347,6 +371,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BODQ3NDExOGYtMzI3Mi00NWRlLTkwNjAtNjc4MDgzZGJiZTA1XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX380_CR0,3,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 1,
   },
   {
     id: 25,
@@ -361,6 +386,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_QL75_UY562_CR0,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 2,
   },
   {
     id: 26,
@@ -375,6 +401,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY562_CR2,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 3,
   },
   {
     id: 27,
@@ -389,6 +416,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 4,
   },
   {
     id: 28,
@@ -403,6 +431,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
+    isRating: 5,
   },
   {
     id: 29,
@@ -417,6 +446,7 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
+    isRating: 4,
   },
   {
     id: 30,
@@ -431,5 +461,6 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
+    isRating: 3,
   },
 ];
