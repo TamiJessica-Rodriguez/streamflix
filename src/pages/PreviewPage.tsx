@@ -30,7 +30,7 @@ const PreviewPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const filtered = mockedData.filter((movie) => movie.isRating === rating);
+    const filtered = mockedData.filter((movie) => movie.starRating === rating);
     setFilteredMovies(filtered);
   }, [rating]);
 

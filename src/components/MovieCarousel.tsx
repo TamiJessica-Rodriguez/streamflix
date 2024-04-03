@@ -96,7 +96,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
                 />
               </button>
               <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-1 flex justify-center">
-                {renderStars(movie.isRating)}
+                {renderStars(movie.starRating)}
               </div>
             </div>
           ))}

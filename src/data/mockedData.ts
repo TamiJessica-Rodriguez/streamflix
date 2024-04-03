@@ -3,13 +3,13 @@ export interface Movie {
   id: number;
   title: string;
   year: number;
-  rating: string;
+  ageRating: string;
   actors: string[];
   genre: string;
   synopsis: string;
   thumbnail: string;
   isTrending: boolean;
-  isRating: number;
+  starRating: number;
 }
 
 export const mockedData: Movie[] = [
@@ -17,7 +17,7 @@ export const mockedData: Movie[] = [
     id: 1,
     title: "The Shawshank Redemption",
     year: 1994,
-    rating: "R",
+    ageRating: "R",
     actors: ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
     genre: "Drama",
     synopsis:
@@ -26,13 +26,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
   {
     id: 2,
     title: "The Godfather",
     year: 1972,
-    rating: "R",
+    ageRating: "R",
     actors: ["Marlon Brando", "Al Pacino", "James Caan"],
     genre: "Crime, Drama",
     synopsis:
@@ -41,13 +41,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 2,
+    starRating: 2,
   },
   {
     id: 3,
     title: "The Godfather: Part II",
     year: 1974,
-    rating: "R",
+    ageRating: "R",
     actors: ["Al Pacino", "Robert De Niro", "Robert Duvall"],
     genre: "Crime, Drama",
     synopsis:
@@ -56,13 +56,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX380_CR0,0,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
-    isRating: 5,
+    starRating: 5,
   },
   {
     id: 4,
     title: "The Dark Knight",
     year: 2008,
-    rating: "PG-13",
+    ageRating: "PG-13",
     actors: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
     genre: "Action, Crime, Drama",
     synopsis:
@@ -71,13 +71,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 5,
+    starRating: 5,
   },
   {
     id: 5,
     title: "12 Angry Men",
     year: 1957,
-    rating: "Not Rated",
+    ageRating: "Not Rated",
     actors: ["Henry Fonda", "Lee J. Cobb", "Martin Balsam"],
     genre: "Crime, Drama",
     synopsis:
@@ -86,13 +86,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 4,
+    starRating: 4,
   },
   {
     id: 6,
     title: "Schindler's List",
     year: 1993,
-    rating: "R",
+    ageRating: "R",
     actors: ["Liam Neeson", "Ralph Fiennes", "Ben Kingsley"],
     genre: "Biography, Drama, History",
     synopsis:
@@ -101,13 +101,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
   {
     id: 7,
     title: "The Lord of the Rings: The Return of the King",
     year: 2003,
-    rating: "PG-13",
+    ageRating: "PG-13",
     actors: ["Elijah Wood", "Viggo Mortensen", "Ian McKellen"],
     genre: "Action, Adventure, Drama",
     synopsis:
@@ -116,13 +116,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: true,
     isBookmarked: false,
-    isRating: 2,
+    starRating: 2,
   },
   {
     id: 8,
     title: "Pulp Fiction",
     year: 1994,
-    rating: "R",
+    ageRating: "R",
     actors: ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
     genre: "Crime, Drama",
     synopsis:
@@ -131,13 +131,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 1,
+    starRating: 1,
   },
   {
     id: 9,
     title: "The Good, the Bad and the Ugly",
     year: 1966,
-    rating: "Not Rated",
+    ageRating: "Not Rated",
     actors: ["Clint Eastwood", "Lee Van Cleef", "Eli Wallach"],
     genre: "Western",
     synopsis:
@@ -146,13 +146,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 2,
+    starRating: 2,
   },
   {
     id: 10,
     title: "Fight Club",
     year: 1999,
-    rating: "R",
+    ageRating: "R",
     actors: ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
     genre: "Drama",
     synopsis:
@@ -161,13 +161,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BODQ0OWJiMzktYjNlYi00MzcwLThlZWMtMzRkYTY4ZDgxNzgxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX960_.jpg",
     isTrending: true,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
   {
     id: 11,
     title: "Forrest Gump",
     year: 1994,
-    rating: "PG-13",
+    ageRating: "PG-13",
     actors: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
     genre: "Drama, Romance",
     synopsis:
@@ -176,13 +176,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 4,
+    starRating: 4,
   },
   {
     id: 12,
     title: "Inception",
     year: 2010,
-    rating: "PG-13",
+    ageRating: "PG-13",
     actors: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
     genre: "Action, Adventure, Sci-Fi",
     synopsis:
@@ -191,13 +191,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 5,
+    starRating: 5,
   },
   {
     id: 13,
     title: "The Lord of the Rings: The Fellowship of the Ring",
     year: 2001,
-    rating: "PG-13",
+    ageRating: "PG-13",
     actors: ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
     genre: "Action, Adventure, Drama",
     synopsis:
@@ -206,13 +206,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 4,
+    starRating: 4,
   },
   {
     id: 14,
     title: "Star Wars: Episode V - The Empire Strikes Back",
     year: 1980,
-    rating: "PG",
+    ageRating: "PG",
     actors: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
     genre: "Action, Adventure, Fantasy",
     synopsis:
@@ -221,13 +221,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: true,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
   {
     id: 15,
     title: "The Matrix",
     year: 1999,
-    rating: "R",
+    ageRating: "R",
     actors: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
     genre: "Action, Sci-Fi",
     synopsis:
@@ -236,13 +236,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 2,
+    starRating: 2,
   },
   {
     id: 16,
     title: "Goodfellas",
     year: 1990,
-    rating: "R",
+    ageRating: "R",
     actors: ["Robert De Niro", "Ray Liotta", "Joe Pesci"],
     genre: "Biography, Crime, Drama",
     synopsis:
@@ -251,13 +251,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 1,
+    starRating: 1,
   },
   {
     id: 17,
     title: "One Flew Over the Cuckoo's Nest",
     year: 1975,
-    rating: "R",
+    ageRating: "R",
     actors: ["Jack Nicholson", "Louise Fletcher", "Michael Berryman"],
     genre: "Drama",
     synopsis:
@@ -266,13 +266,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 2,
+    starRating: 2,
   },
   {
     id: 18,
     title: "Seven Samurai",
     year: 1954,
-    rating: "Not Rated",
+    ageRating: "Not Rated",
     actors: ["Toshiro Mifune", "Takashi Shimura", "Keiko Tsushima"],
     genre: "Action, Adventure, Drama",
     synopsis:
@@ -281,13 +281,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTAzY2Q4OGUtMzg4Ni00YTBlLThkMDgtMTVlMjY0ZGRlMzdjXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_FMjpg_UX1000_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
   {
     id: 19,
     title: "The Silence of the Lambs",
     year: 1991,
-    rating: "R",
+    ageRating: "R",
     actors: ["Jodie Foster", "Anthony Hopkins", "Lawrence A. Bonney"],
     genre: "Crime, Drama, Thriller",
     synopsis:
@@ -296,13 +296,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 4,
+    starRating: 4,
   },
   {
     id: 20,
     title: "Casablanca",
     year: 1942,
-    rating: "PG",
+    ageRating: "PG",
     actors: ["Humphrey Bogart", "Ingrid Bergman", "Paul Henreid"],
     genre: "Drama, Romance, War",
     synopsis:
@@ -311,13 +311,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_QL75_UX380_CR0,5,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
-    isRating: 5,
+    starRating: 5,
   },
   {
     id: 21,
     title: "The Lord of the Rings: The Two Towers",
     year: 2002,
-    rating: "PG-13",
+    ageRating: "PG-13",
     actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
     genre: "Action, Adventure, Drama",
     synopsis:
@@ -326,13 +326,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,14,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 4,
+    starRating: 4,
   },
   {
     id: 22,
     title: "Indiana Jones and the Raiders of the Lost Ark",
     year: 1981,
-    rating: "PG",
+    ageRating: "PG",
     actors: ["Harrison Ford", "Karen Allen", "Paul Freeman"],
     genre: "Action, Adventure",
     synopsis:
@@ -341,13 +341,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNTU2ODkyY2MtMjU1NC00NjE1LWEzYjgtMWQ3MzRhMTE0NDc0XkEyXkFqcGdeQXVyMjM4MzQ4OTQ@._V1_QL75_UY562_CR1,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
   {
     id: 23,
     title: "City of God",
     year: 2002,
-    rating: "R",
+    ageRating: "R",
     actors: ["Alexandre Rodrigues", "Leandro Firmino", "Matheus Nachtergaele"],
     genre: "Crime, Drama",
     synopsis:
@@ -356,13 +356,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMGU5OWEwZDItNmNkMC00NzZmLTk1YTctNzVhZTJjM2NlZTVmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 2,
+    starRating: 2,
   },
   {
     id: 24,
     title: "Once Upon a Time in the West",
     year: 1968,
-    rating: "PG-13",
+    ageRating: "PG-13",
     actors: ["Henry Fonda", "Charles Bronson", "Claudia Cardinale"],
     genre: "Western",
     synopsis:
@@ -371,13 +371,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BODQ3NDExOGYtMzI3Mi00NWRlLTkwNjAtNjc4MDgzZGJiZTA1XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX380_CR0,3,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 1,
+    starRating: 1,
   },
   {
     id: 25,
     title: "The Departed",
     year: 2006,
-    rating: "R",
+    ageRating: "R",
     actors: ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"],
     genre: "Crime, Drama, Thriller",
     synopsis:
@@ -386,13 +386,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_QL75_UY562_CR0,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 2,
+    starRating: 2,
   },
   {
     id: 26,
     title: "Rear Window",
     year: 1954,
-    rating: "PG",
+    ageRating: "PG",
     actors: ["James Stewart", "Grace Kelly", "Wendell Corey"],
     genre: "Mystery, Thriller",
     synopsis:
@@ -401,13 +401,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY562_CR2,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
   {
     id: 27,
     title: "Gladiator",
     year: 2000,
-    rating: "R",
+    ageRating: "R",
     actors: ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
     genre: "Action, Adventure, Drama",
     synopsis:
@@ -416,13 +416,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 4,
+    starRating: 4,
   },
   {
     id: 28,
     title: "Terminator 2: Judgment Day",
     year: 1991,
-    rating: "R",
+    ageRating: "R",
     actors: ["Arnold Schwarzenegger", "Linda Hamilton", "Edward Furlong"],
     genre: "Action, Sci-Fi",
     synopsis:
@@ -431,13 +431,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
-    isRating: 5,
+    starRating: 5,
   },
   {
     id: 29,
     title: "Whiplash",
     year: 2014,
-    rating: "R",
+    ageRating: "R",
     actors: ["Miles Teller", "J.K. Simmons", "Melissa Benoist"],
     genre: "Drama, Music",
     synopsis:
@@ -446,13 +446,13 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
     isTrending: false,
     isBookmarked: false,
-    isRating: 4,
+    starRating: 4,
   },
   {
     id: 30,
     title: "Psycho",
     year: 1960,
-    rating: "R",
+    ageRating: "R",
     actors: ["Anthony Perkins", "Janet Leigh", "Vera Miles"],
     genre: "Horror, Mystery, Thriller",
     synopsis:
@@ -461,6 +461,6 @@ export const mockedData: Movie[] = [
       "https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     isTrending: true,
     isBookmarked: false,
-    isRating: 3,
+    starRating: 3,
   },
 ];

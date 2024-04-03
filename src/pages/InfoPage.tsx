@@ -11,7 +11,7 @@ interface InfoPageProps {
 const InfoPage: React.FC<InfoPageProps> = ({
   movieId,
   onCloseModal,
-  toggleBookmark, // Changed from toggleBookmark
+  toggleBookmark,
 }) => {
   const movie: Movie | undefined = mockedData.find(
     (movie) => movie.id.toString() === movieId
@@ -48,17 +48,16 @@ const InfoPage: React.FC<InfoPageProps> = ({
           </div>
 
           <div
-            className="bg-stone-950
-             rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full"
+            className="bg-stone-950 rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full"
             ref={modalRef}
           >
             <div className="p-4">
               {movie && (
                 <button
-                  onClick={() => toggleBookmark(movie.id)} // Changed from toggleBookmark
+                  onClick={() => toggleBookmark(movie.id)}
                   className="absolute top-0 right-0 p-2"
-                  aria-label="Bookmark"
                 >
+                  {/* Bookmark icon, adjust fill conditionally based on bookmark status */}
                   <svg
                     viewBox="0 0 24 24"
                     fill={bookmarked.has(movie.id) ? "lightgray" : "none"}
@@ -70,22 +69,25 @@ const InfoPage: React.FC<InfoPageProps> = ({
                   </svg>
                 </button>
               )}
-              <div className="text-center"></div>
-              <div className="mt-4">
+              <div className="text-center">
                 {movie && (
-                  <img src={movie.thumbnail} alt="" className="mx-auto w-52" />
+                  <>
+                    <img
+                      src={movie.thumbnail}
+                      alt={movie.title}
+                      className="mx-auto w-52 h-auto rounded-md"
+                    />
+                    <h3 className="text-lg font-medium mt-2">{movie.title}</h3>
+                    <div className="text-sm font-light">
+                      {movie.genre} | {movie.year}
+                    </div>
+                    {/* Display the movie's rating */}
+                    <div className="mt-1 font-semibold">
+                      Rating: {movie.ageRating}
+                    </div>
+                    <p className="mt-4">{movie.synopsis}</p>
+                  </>
                 )}
-                {movie && (
-                  <h3 className="text-lg font-medium text-white">
-                    {movie.title}
-                  </h3>
-                )}
-                {movie && <p>{movie.genre}</p>}
-                {movie && <p>{movie.year}</p>}
-                <br />
-
-                {movie && <p>{movie.synopsis}</p>}
-                {movie && <p>{movie.actors}</p>}
               </div>
             </div>
           </div>
