@@ -8,7 +8,7 @@ interface RatingContextType {
 const RatingContext = createContext<RatingContextType | undefined>(undefined);
 
 export const RatingProvider = ({ children }: { children: ReactNode }) => {
-  const [rating, setRating] = useState<number>(0); 
+  const [rating, setRating] = useState<number>(0);
 
   const value = { rating, setRating };
 
@@ -16,7 +16,6 @@ export const RatingProvider = ({ children }: { children: ReactNode }) => {
     <RatingContext.Provider value={value}>{children}</RatingContext.Provider>
   );
 };
-
 
 export const useRating = () => {
   const context = useContext(RatingContext);
