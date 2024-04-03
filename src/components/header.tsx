@@ -2,24 +2,23 @@ import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useRating } from "../context/RatingContext";
 
-const FEATURE_FLAG_RATING_SYSTEM: boolean = false;
+const FEATURE_FLAG_RATING_SYSTEM = false;
 
 function Header() {
-  const [ratingVisible, setRatingVisible] = useState<boolean>(false);
-  const [rating, setRating] = useState<number>(0); // Lägger till en typangivelse här för `number`
+  const { rating, setRating } = useRating();
+  const [ratingVisible, setRatingVisible] = useState(false);
 
-  const toggleRatingVisibility = (): void => {
+  const toggleRatingVisibility = () => {
     if (FEATURE_FLAG_RATING_SYSTEM) {
       setRatingVisible(!ratingVisible);
     }
   };
 
-  const handleRating = (index: number): void => {
-    // Ange `index` typen explicit som `number`
-    if (FEATURE_FLAG_RATING_SYSTEM) {
-      setRating(index + 1);
-    }
+  const handleRating = (index: number) => {
+    const newRating = index + 1;
+    setRating(newRating);
   };
 
   return (
@@ -52,7 +51,7 @@ function Header() {
       </div>
       {ratingVisible && FEATURE_FLAG_RATING_SYSTEM && (
         <div className="absolute top-full right-0 mt-2 bg-black p-4 shadow-lg rounded z-10 flex justify-around w-48">
-          {Array.from({ length: 5 }, (_, index: number) => (
+          {Array.from({ length: 5 }, (_, index) => (
             <FontAwesomeIcon
               key={index}
               icon={faStar}

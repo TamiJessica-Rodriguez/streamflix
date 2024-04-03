@@ -1,3 +1,13 @@
+import {
+  faStar as emptyStar,
+  faArrowLeft,
+  faArrowRight,
+  faStarHalfAlt,
+  faStar as fullStar,
+  faHeart as heartOutline,
+  faHeart as heartSolid,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 import { Movie } from "../data/mockedData";
 import InfoPage from "../pages/InfoPage";
@@ -17,7 +27,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
 
-  const handleClick = (movieId: number) => {
+  const handleMovieClick = (movieId: number) => {
     setSelectedMovieId(movieId);
     setShowModal(true);
   };
@@ -25,6 +35,11 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   const handleCloseModal = () => {
     setSelectedMovieId(null);
     setShowModal(false);
+  };
+
+  const handleBookmarkClick = (e: React.MouseEvent, movieId: number) => {
+    e.stopPropagation();
+    toggleBookmark(movieId);
   };
 
   const scroll = (direction: "left" | "right", event: React.MouseEvent) => {
@@ -37,6 +52,26 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
     }
   };
 
+  const renderStars = (rating?: number) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <FontAwesomeIcon
+          icon={
+            i <= Math.floor(rating || 0)
+              ? fullStar
+              : i === Math.ceil(rating || 0)
+              ? faStarHalfAlt
+              : emptyStar
+          }
+          className={i <= (rating || 0) ? "text-yellow-400" : "text-gray-300"}
+          key={i}
+        />
+      );
+    }
+    return <div className="flex">{stars}</div>;
+  };
+
   return (
     <div className="relative flex flex-col items-center">
       <div className="flex overflow-hidden" ref={carouselRef}>
@@ -47,30 +82,22 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
                 src={movie.thumbnail}
                 alt={movie.title}
                 className="h-48 object-cover cursor-pointer"
-                onClick={() => handleClick(movie.id)}
+                onClick={() => handleMovieClick(movie.id)}
               />
               <button
                 className="absolute top-2 right-2 text-white"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleBookmark(movie.id);
-                }}
+                onClick={(e) => handleBookmarkClick(e, movie.id)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill={bookmarked.has(movie.id) ? "Lightgray" : "none"}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                  />
-                </svg>
+                <FontAwesomeIcon
+                  icon={bookmarked.has(movie.id) ? heartSolid : heartOutline}
+                  className={
+                    bookmarked.has(movie.id) ? "text-red-500" : "text-white"
+                  }
+                />
               </button>
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-1 flex justify-center">
+                {renderStars(movie.isRating)}
+              </div>
             </div>
           ))}
         </div>
@@ -80,38 +107,14 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
         className="absolute left-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
         style={{ top: "50%" }}
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
+        <FontAwesomeIcon icon={faArrowLeft} />
       </button>
       <button
         onClick={(e) => scroll("right", e)}
         className="absolute right-0 z-20 mx-2 my-2 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition duration-300 ease-in-out"
         style={{ top: "50%" }}
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
+        <FontAwesomeIcon icon={faArrowRight} />
       </button>
       {showModal && selectedMovieId && (
         <InfoPage

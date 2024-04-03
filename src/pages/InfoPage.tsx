@@ -5,14 +5,19 @@ import { Movie, mockedData } from "../data/mockedData";
 interface InfoPageProps {
   movieId: string;
   onCloseModal: () => void;
+  toggleBookmark: (movieId: number) => void;
 }
 
-const InfoPage: React.FC<InfoPageProps> = ({ movieId, onCloseModal }) => {
+const InfoPage: React.FC<InfoPageProps> = ({
+  movieId,
+  onCloseModal,
+  toggleBookmark, // Changed from toggleBookmark
+}) => {
   const movie: Movie | undefined = mockedData.find(
     (movie) => movie.id.toString() === movieId
   );
   const modalRef = useRef<HTMLDivElement>(null);
-  const { bookmarked, toggleBookmark } = useBookmarked();
+  const { bookmarked } = useBookmarked();
 
   const handleClose = () => {
     onCloseModal();
@@ -50,7 +55,7 @@ const InfoPage: React.FC<InfoPageProps> = ({ movieId, onCloseModal }) => {
             <div className="p-4">
               {movie && (
                 <button
-                  onClick={() => toggleBookmark(movie.id)}
+                  onClick={() => toggleBookmark(movie.id)} // Changed from toggleBookmark
                   className="absolute top-0 right-0 p-2"
                   aria-label="Bookmark"
                 >

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import MovieCarousel from "../components/MovieCarousel";
 import SearchMovies from "../components/SearchMovies";
 import { useBookmarked } from "../context/BookmarkedContext";
+import { useRating } from "../context/RatingContext";
 import { Movie, mockedData } from "../data/mockedData";
 
 const PreviewPage: React.FC = () => {
   const { bookmarked, toggleBookmark } = useBookmarked();
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const { rating } = useRating();
+  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     localStorage.setItem(
@@ -25,6 +28,11 @@ const PreviewPage: React.FC = () => {
     setSearchResults(results);
     setIsSearchActive(true);
   };
+
+  useEffect(() => {
+    const filtered = mockedData.filter((movie) => movie.isRating === rating);
+    setFilteredMovies(filtered);
+  }, [rating]);
 
   return (
     <div className="bg-black text-white py-8">
@@ -48,10 +56,17 @@ const PreviewPage: React.FC = () => {
           <p className="text-center">No movies found.</p>
         )}
 
+        <MovieCarousel
+          movies={filteredMovies}
+          bookmarked={bookmarked}
+          toggleBookmark={toggleBookmark}
+        />
+
         <div>
           <h2 className="text-center text-2xl font-semibold mb-4">
             Recommended for You
           </h2>
+
           <MovieCarousel
             movies={recommendedMovies}
             bookmarked={bookmarked}
