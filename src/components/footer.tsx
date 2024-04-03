@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 function Footer() {
 	return (
 		<div className="flex flex-col justify-between bg-neutral-950 bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600 p-6 text-black md:flex-row">
