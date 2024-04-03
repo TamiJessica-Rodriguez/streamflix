@@ -1,7 +1,7 @@
 import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useRating } from "../context/RatingContext";
 
 const FEATURE_FLAG_RATING_SYSTEM = false;
@@ -9,6 +9,15 @@ const FEATURE_FLAG_RATING_SYSTEM = false;
 function Header() {
   const { rating, setRating } = useRating();
   const [ratingVisible, setRatingVisible] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/PreviewPage") {
+      setRatingVisible(true);
+    } else {
+      setRatingVisible(false);
+    }
+  }, [location]);
 
   const toggleRatingVisibility = () => {
     if (FEATURE_FLAG_RATING_SYSTEM) {
@@ -40,14 +49,15 @@ function Header() {
         <Link to="/Bookmarked" className="text-black hover:text-white mr-4">
           <FontAwesomeIcon icon={faHeart} />
         </Link>
-        {FEATURE_FLAG_RATING_SYSTEM && (
-          <button
-            onClick={toggleRatingVisibility}
-            className="text-black hover:text-white"
-          >
-            <FontAwesomeIcon icon={faStar} />
-          </button>
-        )}
+        {FEATURE_FLAG_RATING_SYSTEM &&
+          ratingVisible && ( // Modifierad här
+            <button
+              onClick={toggleRatingVisibility}
+              className="text-black hover:text-white"
+            >
+              <FontAwesomeIcon icon={faStar} />
+            </button>
+          )}
       </div>
       {ratingVisible && FEATURE_FLAG_RATING_SYSTEM && (
         <div className="absolute top-full right-0 mt-2 bg-black p-4 shadow-lg rounded z-10 flex justify-around w-48">
