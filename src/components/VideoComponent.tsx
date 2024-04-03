@@ -10,9 +10,9 @@ export default function VideoComponent() {
 	};
 
 	return (
-		<div className="relative mt-[-3rem]">
+		<div className="relative -mt-12">
 			<video
-				className="w-full h-full object-cover"
+				className="size-full object-cover"
 				src="src\video\The Dark Knight.mp4"
 				autoPlay
 				muted={muted}
@@ -20,7 +20,7 @@ export default function VideoComponent() {
 			></video>
 			<button
 				onClick={toggleMuted}
-				className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-black text-white rounded-full p-2 focus:outline-none"
+				className="absolute right-4 top-4 rounded-full bg-black p-2 text-white focus:outline-none sm:right-8 sm:top-8"
 				style={{
 					backgroundImage: `url(${muted ? volumeMutedIcon : volumeFullIcon})`,
 					backgroundSize: "cover",
