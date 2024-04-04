@@ -56,12 +56,6 @@ const PreviewPage: React.FC = () => {
           <p className="text-center">No movies found.</p>
         )}
 
-        <MovieCarousel
-          movies={filteredMovies}
-          bookmarked={bookmarked}
-          toggleBookmark={toggleBookmark}
-        />
-
         <div>
           <h2 className="mb-4 text-center text-2xl font-semibold">
             Recommended for You
