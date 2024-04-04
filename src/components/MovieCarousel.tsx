@@ -26,6 +26,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   const carouselRef = useRef<HTMLDivElement>(null)
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null)
   const [showModal, setShowModal] = useState(false)
+  const renderStarsFlag = false
 
   const handleMovieClick = (movieId: number) => {
     setSelectedMovieId(movieId)
@@ -53,6 +54,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   }
 
   const renderStars = (rating?: number) => {
+    if (!renderStarsFlag) return null
     const stars = []
     for (let i = 1; i <= 5; i++) {
       stars.push(
@@ -71,7 +73,6 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
     }
     return <div className="flex">{stars}</div>
   }
-
   return (
     <div className="relative flex flex-col items-center">
       <div className="flex overflow-hidden" ref={carouselRef}>
@@ -90,9 +91,8 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
               >
                 <FontAwesomeIcon
                   icon={bookmarked.has(movie.id) ? heartSolid : heartOutline}
-                  className={
-                    bookmarked.has(movie.id) ? 'text-red-500' : 'text-white'
-                  }
+                  // eslint-disable-next-line tailwindcss/no-custom-classname
+                  className={bookmarked.has(movie.id) ? 'text-red-500' : 'none'}
                 />
               </button>
 

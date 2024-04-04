@@ -5,12 +5,14 @@ const StarList = () => {
   const { rating } = useRating()
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([])
 
-  useEffect(() => {
-    const newFilteredMovies = mockedData.filter(
-      (movie) => movie.starRating === rating
-    )
-    setFilteredMovies(newFilteredMovies)
-  }, [rating])
+
+	useEffect(() => {
+		const newFilteredMovies = mockedData.filter(
+			(movie) => movie.starRating === rating
+		);
+		setFilteredMovies(newFilteredMovies);
+	}, [rating]);
+
 
   return (
     <div>
