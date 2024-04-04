@@ -69,7 +69,7 @@ const InfoPage: React.FC<InfoPageProps> = ({
               <div className="text-center"></div>
               <div className="mt-4">
                 {movie && (
-                  <img src={movie.thumbnail} alt="" className="mx-auto w-56" />
+                  <img src={movie.thumbnail} alt="" className="mx-auto w-40" />
                 )}
                 {movie && (
                   <h3 className="text-lg font-medium text-white">
