@@ -25,7 +25,7 @@ function Header() {
 		<div className="relative flex flex-1 flex-col items-center justify-between bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600 p-2 text-white sm:flex-row">
 			<div className="flex flex-1 items-center justify-start sm:mr-4">
 				<Link to="/">
-					<img src="src/images/newlogo.png" alt="Logo" className="h-10" />
+					<img src="src/images/newlogo.png" alt="Logo" className="h-10 sm: w-auto h-8" />
 				</Link>
 			</div>
 			<div className="flex flex-1 items-center justify-center text-xl font-bold text-black">
