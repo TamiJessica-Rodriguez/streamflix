@@ -7,7 +7,7 @@ const StarList = () => {
 
 	useEffect(() => {
 		const newFilteredMovies = mockedData.filter(
-			(movie) => movie.isRating === rating
+			(movie) => movie.starRating === rating
 		);
 		setFilteredMovies(newFilteredMovies);
 	}, [rating]);

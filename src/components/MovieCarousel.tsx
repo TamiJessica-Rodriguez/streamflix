@@ -8,7 +8,7 @@ import {
   faHeart as heartSolid,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Movie } from '../data/mockedData'
 import InfoPage from '../pages/InfoPage'
 
@@ -26,6 +26,14 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   const carouselRef = useRef<HTMLDivElement>(null)
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null)
   const [showModal, setShowModal] = useState(false)
+  const [renderStarsFlag, setRenderStarsFlag] = useState<boolean>(true)
+
+  useEffect(() => {
+    const flag = localStorage.getItem('renderStarsFlag')
+    if (flag !== null) {
+      setRenderStarsFlag(JSON.parse(flag))
+    }
+  }, [])
 
   const handleMovieClick = (movieId: number) => {
     setSelectedMovieId(movieId)
@@ -53,6 +61,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   }
 
   const renderStars = (rating?: number) => {
+    if (!renderStarsFlag) return null
     const stars = []
     for (let i = 1; i <= 5; i++) {
       stars.push(
@@ -72,8 +81,15 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
     return <div className="flex">{stars}</div>
   }
 
+  const toggleRenderStars = () => {
+    const newFlag = !renderStarsFlag
+    setRenderStarsFlag(newFlag)
+    localStorage.setItem('renderStarsFlag', JSON.stringify(newFlag))
+  }
+
   return (
     <div className="relative flex flex-col items-center">
+      <button onClick={toggleRenderStars}>Toggle Stars Rendering</button>
       <div className="flex overflow-hidden" ref={carouselRef}>
         <div className="flex flex-nowrap">
           {movies.map((movie) => (
