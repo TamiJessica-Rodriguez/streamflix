@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { useRating } from "../context/RatingContext";
-import { Movie, mockedData } from "../data/mockedData";
+import { useEffect, useState } from 'react'
+import { useRating } from '../context/RatingContext'
+import { Movie, mockedData } from '../data/mockedData'
 const StarList = () => {
-	const { rating } = useRating();
-	const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
+  const { rating } = useRating()
+  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([])
+
 
 	useEffect(() => {
 		const newFilteredMovies = mockedData.filter(
@@ -12,15 +13,16 @@ const StarList = () => {
 		setFilteredMovies(newFilteredMovies);
 	}, [rating]);
 
-	return (
-		<div>
-			{filteredMovies.map((movie) => (
-				<div key={movie.id}>
-					<img src={movie.thumbnail} alt={movie.title} />
-				</div>
-			))}
-		</div>
-	);
-};
 
-export default StarList;
+  return (
+    <div>
+      {filteredMovies.map((movie) => (
+        <div key={movie.id}>
+          <img src={movie.thumbnail} alt={movie.title} />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default StarList
