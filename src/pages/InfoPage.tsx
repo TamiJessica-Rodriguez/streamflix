@@ -11,7 +11,7 @@ interface InfoPageProps {
 const InfoPage: React.FC<InfoPageProps> = ({
   movieId,
   onCloseModal,
-  toggleBookmark, // Changed from toggleBookmark
+  toggleBookmark,
 }) => {
   const movie: Movie | undefined = mockedData.find(
     (movie) => movie.id.toString() === movieId
@@ -57,7 +57,7 @@ const InfoPage: React.FC<InfoPageProps> = ({
                 >
                   <svg
                     viewBox="0 0 24 24"
-                    fill={bookmarked.has(movie.id) ? 'lightgray' : 'none'}
+                    fill={bookmarked.has(movie.id) ? 'red' : 'none'}
                     stroke="currentColor"
                     className="size-6"
                     strokeWidth="2"
@@ -67,21 +67,30 @@ const InfoPage: React.FC<InfoPageProps> = ({
                 </button>
               )}
               <div className="text-center"></div>
+
               <div className="mt-4">
                 {movie && (
-                  <img src={movie.thumbnail} alt="" className="mx-auto w-40" />
+                  <>
+                    <img
+                      src={movie.thumbnail}
+                      alt={movie.title}
+                      className="mx-auto h-auto w-52 rounded-md"
+                    />
+                    <h3 className="mt-2 text-lg font-medium">{movie.title}</h3>
+                    <div className="text-sm font-light">
+                      {movie.genre} | {movie.year}
+                    </div>
+                    {/* Display the movie's actors */}
+                    <div className="text-sm font-light">
+                      Actors: {movie.actors}
+                    </div>
+                    {/* Display the movie's rating */}
+                    <div className="text-sm font-light">
+                      Rating:  {movie.ageRating}
+                    </div>
+                    <p className="mt-4">{movie.synopsis}</p>
+                  </>
                 )}
-                {movie && (
-                  <h3 className="text-lg font-medium text-white">
-                    {movie.title}
-                  </h3>
-                )}
-                {movie && <p>{movie.genre}</p>}
-                {movie && <p>{movie.year}</p>}
-                <br />
-
-                {movie && <p>{movie.synopsis}</p>}
-                {movie && <p>{movie.actors}</p>}
               </div>
             </div>
           </div>
