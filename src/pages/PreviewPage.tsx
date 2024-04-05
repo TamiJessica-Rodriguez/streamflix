@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import MovieCarousel from '../components/MovieCarousel'
-import SearchMovies from '../components/SearchMovies'
-import { useBookmarked } from '../context/BookmarkedContext'
-import { useRating } from '../context/RatingContext'
-import { Movie, mockedData } from '../data/mockedData'
+import React, { useEffect, useState } from "react";
+import MovieCarousel from "../components/MovieCarousel";
+import SearchMovies from "../components/SearchMovies";
+import { useBookmarked } from "../context/BookmarkedContext";
+import { useRating } from "../context/RatingContext";
+import { Movie, mockedData } from "../data/mockedData";
 
 const PreviewPage: React.FC = () => {
-  const { bookmarked, toggleBookmark } = useBookmarked()
-  const [searchResults, setSearchResults] = useState<Movie[]>([])
-  const [isSearchActive, setIsSearchActive] = useState(false)
-  const { rating } = useRating()
-  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([])
+  const { bookmarked, toggleBookmark } = useBookmarked();
+  const [searchResults, setSearchResults] = useState<Movie[]>([]);
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const { rating } = useRating();
+  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     localStorage.setItem(
-      'bookmarkedMovies',
+      "bookmarkedMovies",
       JSON.stringify(Array.from(bookmarked))
-    )
-  }, [bookmarked])
+    );
+  }, [bookmarked]);
 
   // Filtering movies
-  const trendingMovies = mockedData.filter((movie) => movie.isTrending)
-  const nonTrendingMovies = mockedData.filter((movie) => !movie.isTrending)
-  const recommendedMovies = nonTrendingMovies.slice(0, 10)
+  const trendingMovies = mockedData.filter((movie) => movie.isTrending);
+  const nonTrendingMovies = mockedData.filter((movie) => !movie.isTrending);
+  const recommendedMovies = nonTrendingMovies.slice(0, 10);
 
   const handleSearchResult = (results: Movie[]) => {
-    setSearchResults(results)
-    setIsSearchActive(true)
-  }
+    setSearchResults(results);
+    setIsSearchActive(true);
+  };
 
   useEffect(() => {
-    const filtered = mockedData.filter((movie) => movie.starRating === rating)
-    setFilteredMovies(filtered)
-  }, [rating])
+    const filtered = mockedData.filter((movie) => movie.starRating === rating);
+    setFilteredMovies(filtered);
+  }, [rating]);
 
   return (
     <div className="bg-black py-8 text-white">
@@ -95,7 +95,7 @@ const PreviewPage: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PreviewPage
+export default PreviewPage;

@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import { Movie, mockedData } from '../data/mockedData'
-import InfoPage from '../pages/InfoPage'
+import React, { useState } from "react";
+import { Movie, mockedData } from "../data/mockedData";
+import InfoPage from "../pages/InfoPage";
 
 const Bookmarked: React.FC = () => {
-  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null)
+  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
 
   const bookmarkedIds: number[] = JSON.parse(
-    localStorage.getItem('bookmarkedMovies') || '[]'
-  )
+    localStorage.getItem("bookmarkedMovies") || "[]"
+  );
   const bookmarkedMovies = mockedData.filter((movie: Movie) =>
     bookmarkedIds.includes(movie.id)
-  )
+  );
 
-  const showMovieDetails = (id: number) => setSelectedMovieId(id)
-  const closeMovieDetails = () => setSelectedMovieId(null)
+  const showMovieDetails = (id: number) => setSelectedMovieId(id);
+  const closeMovieDetails = () => setSelectedMovieId(null);
 
   return (
     <div className="min-h-screen bg-black p-4 text-white">
@@ -44,7 +44,7 @@ const Bookmarked: React.FC = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Bookmarked
+export default Bookmarked;

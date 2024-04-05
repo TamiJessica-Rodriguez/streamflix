@@ -1,36 +1,36 @@
-import { faHeart, faStar } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { useRating } from '../context/RatingContext'
+import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useRating } from "../context/RatingContext";
 
-const FEATURE_FLAG_RATING_SYSTEM = false
+const FEATURE_FLAG_RATING_SYSTEM = false;
 
 function Header() {
-  const { rating, setRating } = useRating()
-  const [ratingVisible, setRatingVisible] = useState(false)
+  const { rating, setRating } = useRating();
+  const [ratingVisible, setRatingVisible] = useState(false);
 
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
     // Endast visa stjärnbetyg på PreviewPage
-    if (location.pathname === '/PreviewPage') {
-      setRatingVisible((prev) => prev)
+    if (location.pathname === "/PreviewPage") {
+      setRatingVisible((prev) => prev);
     } else {
-      setRatingVisible(false)
+      setRatingVisible(false);
     }
-  }, [location])
+  }, [location]);
 
   const toggleRatingVisibility = () => {
-    if (FEATURE_FLAG_RATING_SYSTEM && location.pathname === '/PreviewPage') {
-      setRatingVisible(!ratingVisible)
+    if (FEATURE_FLAG_RATING_SYSTEM && location.pathname === "/PreviewPage") {
+      setRatingVisible(!ratingVisible);
     }
-  }
+  };
 
   const handleRating = (index: number) => {
-    const newRating = index + 1
-    setRating(newRating)
-  }
+    const newRating = index + 1;
+    setRating(newRating);
+  };
 
   return (
     <div className="relative flex flex-1 flex-col items-center justify-between bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600 p-2 text-white sm:flex-row">
@@ -55,7 +55,7 @@ function Header() {
         <Link to="/Bookmarked" className="mr-4 text-black hover:text-white">
           <FontAwesomeIcon icon={faHeart} />
         </Link>
-        {FEATURE_FLAG_RATING_SYSTEM && location.pathname === '/PreviewPage' && (
+        {FEATURE_FLAG_RATING_SYSTEM && location.pathname === "/PreviewPage" && (
           <button
             onClick={toggleRatingVisibility}
             className="text-black hover:text-white"
@@ -72,14 +72,14 @@ function Header() {
               icon={faStar}
               onClick={() => handleRating(index)}
               className={`cursor-pointer ${
-                index < rating ? 'text-yellow-500' : 'text-gray-400'
+                index < rating ? "text-yellow-500" : "text-gray-400"
               }`}
             />
           ))}
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
