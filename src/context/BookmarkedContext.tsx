@@ -14,7 +14,7 @@ const defaultContextValue: BookmarkedContextType = {
 
 const BookmarkedContext =
   createContext<BookmarkedContextType>(defaultContextValue)
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const useBookmarked = () => {
   return useContext(BookmarkedContext)
 }
@@ -22,7 +22,6 @@ export const useBookmarked = () => {
 type BookmarkedContextProviderProps = {
   children: ReactNode
 }
-
 export const BookmarkedContextProvider = ({
   children,
 }: BookmarkedContextProviderProps) => {
