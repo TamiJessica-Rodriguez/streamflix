@@ -43,7 +43,7 @@ function Header() {
           />
         </Link>
       </div>
-      <div className="flex flex-1 items-center justify-center text-xl font-bold text-black">
+      <div className="flex flex-1 items-center justify-center text-xl  text-black">
         <Link to="/" className="m-2 px-2 text-black hover:text-white">
           Home
         </Link>
