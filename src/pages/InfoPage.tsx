@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react'
-import { useBookmarked } from '../context/BookmarkedContext'
-import { Movie, mockedData } from '../data/mockedData'
+import React, { useEffect, useRef } from "react";
+import { useBookmarked } from "../context/BookmarkedContext";
+import { Movie, mockedData } from "../data/mockedData";
 
 interface InfoPageProps {
-  movieId: string
-  onCloseModal: () => void
-  toggleBookmark: (movieId: number) => void
+  movieId: string;
+  onCloseModal: () => void;
+  toggleBookmark: (movieId: number) => void;
 }
 
 const InfoPage: React.FC<InfoPageProps> = ({
@@ -15,9 +15,9 @@ const InfoPage: React.FC<InfoPageProps> = ({
 }) => {
   const movie: Movie | undefined = mockedData.find(
     (movie) => movie.id.toString() === movieId
-  )
-  const modalRef = useRef<HTMLDivElement>(null)
-  const { bookmarked } = useBookmarked()
+  );
+  const modalRef = useRef<HTMLDivElement>(null);
+  const { bookmarked } = useBookmarked();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -25,15 +25,15 @@ const InfoPage: React.FC<InfoPageProps> = ({
         modalRef.current &&
         !modalRef.current.contains(event.target as Node)
       ) {
-        onCloseModal()
+        onCloseModal();
       }
-    }
+    };
 
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [onCloseModal])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onCloseModal]);
 
   return (
     <div className="text-white">
@@ -57,7 +57,7 @@ const InfoPage: React.FC<InfoPageProps> = ({
                 >
                   <svg
                     viewBox="0 0 24 24"
-                    fill={bookmarked.has(movie.id) ? 'red' : 'none'}
+                    fill={bookmarked.has(movie.id) ? "red" : "none"}
                     stroke="currentColor"
                     className="size-6"
                     strokeWidth="2"
@@ -86,7 +86,7 @@ const InfoPage: React.FC<InfoPageProps> = ({
                     </div>
                     {/* Display the movie's rating */}
                     <div className="text-sm font-light">
-                      Rating:  {movie.ageRating}
+                      Rating: {movie.ageRating}
                     </div>
                     <p className="mt-4">{movie.synopsis}</p>
                   </>
@@ -97,7 +97,7 @@ const InfoPage: React.FC<InfoPageProps> = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default InfoPage
+export default InfoPage;

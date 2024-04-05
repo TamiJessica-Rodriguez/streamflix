@@ -6,16 +6,16 @@ import {
   faStar as fullStar,
   faHeart as heartOutline,
   faHeart as heartSolid,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useState } from 'react'
-import { Movie } from '../data/mockedData'
-import InfoPage from '../pages/InfoPage'
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useRef, useState } from "react";
+import { Movie } from "../data/mockedData";
+import InfoPage from "../pages/InfoPage";
 
 interface MovieCarouselProps {
-  movies: Movie[]
-  bookmarked: Set<number>
-  toggleBookmark: (movieId: number) => void
+  movies: Movie[];
+  bookmarked: Set<number>;
+  toggleBookmark: (movieId: number) => void;
 }
 
 const MovieCarousel: React.FC<MovieCarouselProps> = ({
@@ -23,39 +23,39 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   bookmarked,
   toggleBookmark,
 }) => {
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null)
-  const [showModal, setShowModal] = useState(false)
-  const renderStarsFlag = false
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
+  const [showModal, setShowModal] = useState(false);
+  const renderStarsFlag = false;
 
   const handleMovieClick = (movieId: number) => {
-    setSelectedMovieId(movieId)
-    setShowModal(true)
-  }
+    setSelectedMovieId(movieId);
+    setShowModal(true);
+  };
 
   const handleCloseModal = () => {
-    setSelectedMovieId(null)
-    setShowModal(false)
-  }
+    setSelectedMovieId(null);
+    setShowModal(false);
+  };
 
   const handleBookmarkClick = (e: React.MouseEvent, movieId: number) => {
-    e.stopPropagation()
-    toggleBookmark(movieId)
-  }
+    e.stopPropagation();
+    toggleBookmark(movieId);
+  };
 
-  const scroll = (direction: 'left' | 'right', event: React.MouseEvent) => {
-    event.stopPropagation()
+  const scroll = (direction: "left" | "right", event: React.MouseEvent) => {
+    event.stopPropagation();
     if (carouselRef.current) {
-      const { current } = carouselRef
-      const scrollAmount = current.offsetWidth / 3
-      const scrollTo = direction === 'left' ? -scrollAmount : scrollAmount
-      current.scrollBy({ left: scrollTo, behavior: 'smooth' })
+      const { current } = carouselRef;
+      const scrollAmount = current.offsetWidth / 3;
+      const scrollTo = direction === "left" ? -scrollAmount : scrollAmount;
+      current.scrollBy({ left: scrollTo, behavior: "smooth" });
     }
-  }
+  };
 
   const renderStars = (rating?: number) => {
-    if (!renderStarsFlag) return null
-    const stars = []
+    if (!renderStarsFlag) return null;
+    const stars = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
         <FontAwesomeIcon
@@ -63,16 +63,16 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
             i <= Math.floor(rating || 0)
               ? fullStar
               : i === Math.ceil(rating || 0)
-              ? faStarHalfAlt
-              : emptyStar
+                ? faStarHalfAlt
+                : emptyStar
           }
-          className={i <= (rating || 0) ? 'text-yellow-400' : 'text-gray-300'}
+          className={i <= (rating || 0) ? "text-yellow-400" : "text-gray-300"}
           key={i}
         />
-      )
+      );
     }
-    return <div className="flex">{stars}</div>
-  }
+    return <div className="flex">{stars}</div>;
+  };
   return (
     <div className="relative flex flex-col items-center">
       <div className="flex overflow-hidden" ref={carouselRef}>
@@ -92,7 +92,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
                 <FontAwesomeIcon
                   icon={bookmarked.has(movie.id) ? heartSolid : heartOutline}
                   // eslint-disable-next-line tailwindcss/no-custom-classname
-                  className={bookmarked.has(movie.id) ? 'text-red-500' : 'none'}
+                  className={bookmarked.has(movie.id) ? "text-red-500" : "none"}
                 />
               </button>
 
@@ -104,16 +104,16 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
         </div>
       </div>
       <button
-        onClick={(e) => scroll('left', e)}
+        onClick={(e) => scroll("left", e)}
         className="absolute left-0 z-20 m-2 rounded-full bg-black/50 p-2 text-white transition duration-300 ease-in-out hover:bg-black/70"
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       >
         <FontAwesomeIcon icon={faArrowLeft} />
       </button>
       <button
-        onClick={(e) => scroll('right', e)}
+        onClick={(e) => scroll("right", e)}
         className="absolute right-0 z-20 m-2 rounded-full bg-black/50 p-2 text-white transition duration-300 ease-in-out hover:bg-black/70"
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       >
         <FontAwesomeIcon icon={faArrowRight} />
       </button>
@@ -125,7 +125,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default MovieCarousel
+export default MovieCarousel;
