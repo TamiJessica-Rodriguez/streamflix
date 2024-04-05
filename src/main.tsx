@@ -10,7 +10,6 @@ import AppLayout from "./AppLayout";
 import { BookmarkedContextProvider } from "./context/BookmarkedContext";
 import { RatingProvider } from "./context/RatingContext";
 import Bookmarked from "./pages/Bookmarked";
-import InfoPage from "./pages/InfoPage";
 import PreviewPage from "./pages/PreviewPage";
 import WelcomePage from "./pages/WelcomePage";
 
@@ -19,7 +18,6 @@ const router = createBrowserRouter(
     <Route path="/" element={<AppLayout />}>
       <Route index element={<WelcomePage />} />
       <Route path="PreviewPage" element={<PreviewPage />} />
-      <Route path="InfoPage/:movieId" element={<InfoPage />} />
       <Route path="Bookmarked" element={<Bookmarked />} />
       <Route path="*" element={<span>The page does not exist..</span>} />
     </Route>
