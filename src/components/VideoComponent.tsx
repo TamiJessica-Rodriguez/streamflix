@@ -1,7 +1,7 @@
 import { useState } from "react";
 import volumeFullIcon from "../Icons/volumefull.png";
 import volumeMutedIcon from "../Icons/volumemuted.png";
-import TheDarkKnight from "src/video/The Dark Knight.mp4";
+import TheDarkKnight from "../video/The Dark Knight.mp4";
 
 export default function VideoComponent() {
   const [muted, setMuted] = useState(true);
