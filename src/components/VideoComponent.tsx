@@ -1,6 +1,7 @@
 import { useState } from "react";
 import volumeFullIcon from "../Icons/volumefull.png";
 import volumeMutedIcon from "../Icons/volumemuted.png";
+import TheDarkKnight from "src/video/The Dark Knight.mp4";
 
 export default function VideoComponent() {
   const [muted, setMuted] = useState(true);
@@ -13,8 +14,7 @@ export default function VideoComponent() {
     <div className="relative -mt-12">
       <video
         className="size-full object-cover"
-        src="src\video\The Dark Knight.mp4"
-        autoPlay
+        src={TheDarkKnight}
         muted={muted}
         loop
       ></video>
